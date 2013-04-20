@@ -14,6 +14,7 @@ h1 {
 h3 {
 	clear: both;
 	text-align: center;
+	margin: 0px;
 }
 
 .item img {
@@ -41,7 +42,7 @@ h3 {
 	border-radius: 4px;
 	overflow: hidden;
 	padding-bottom: 0;
-	margin-bottom: 5px;
+	margin-top: 10px;
 }
 
 .status p {
@@ -49,11 +50,6 @@ h3 {
 	margin: 0px;
 	font-size: 12pt;
 	padding-bottom: 5px;
-}
-
-.status > div :not(.statusnums) {
-	width: 100%;
-	background-color: #d3d6db;
 }
 
 .statusnums {
@@ -81,8 +77,23 @@ h3 {
 }
 
 .bottomImage {
+	position: relative;        
 	position: relative;
-	bottom: 40px;
+	bottom: 40px;		       
+	 bottom: 40px;
+	float: left;	
+	margin-bottom: -40px;			
+	width: 100%;			
+}			
+				
+.bottomImage .statusnums{			
+	float: right;			
+	margin-right: 10px;			
+}			
+			
+.images {			
+    overflow: hidden;			
+    height: 500px;			
 }
 
 .caption {
@@ -94,6 +105,12 @@ h3 {
 
 .statusnums img {
 	vertical-align: middle;
+	width: 20px;
+	margin-bottom:3px;
+}
+
+.status .statusnums {	
+    margin-top: 2px;			
 }
 
 .statusnums{

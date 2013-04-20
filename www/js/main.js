@@ -10,7 +10,7 @@ $(document).ready(function(){
   	$('#login-username').hide();
     
   }
-  $('div.status:not(div.status:first-child)').css('margin-top', STATUS_SPACING);
+  //$('div.status:not(div.status:first-child)').css('margin-top', STATUS_SPACING);
   // $(".large").mouseover(function(){
   // 	$(".caption").show();
   // });
