@@ -102,8 +102,8 @@ class History {
         $newStories = array(
             "mutualFriends" => $newMutFriends,
             "photos" => $this->getImportant("photo", $storyArray, 4),
-            "status" => $this->getImportant("status", $storyArray),
-            "link" => $this->getImportant("link", $storyArray)
+            "status" => $this->getImportant("status", $storyArray, 4),
+            "link" => $this->getImportant("link", $storyArray, 4)
         );
 
         return $newStories;
