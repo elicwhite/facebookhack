@@ -35,6 +35,23 @@ h3 {
 	background-color: white;
 	border: 1px solid #D3D6DB;
 	border-radius: 4px;
+	overflow: hidden;
+}
+
+.status p {
+	border-bottom: 1px solid #e9eaed;
+	margin: 0px;
+	font-size: 12pt;
+	padding-bottom: 5px;
+}
+
+.status > div :not(.statusnums) {
+	width: 100%;
+	background-color: #d3d6db;
+}
+
+.statusnums {
+	float: right;
 }
 
 .input-append {
@@ -43,8 +60,9 @@ h3 {
 
 .mutualfriend {
 	display: inline-block;
-	margin-right: 5px;
+	margin-right: 4px;
 	margin-bottom: 5px;
+	font-size: 0;
 }
 
 .mutualfriend  img{
