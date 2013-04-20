@@ -8,13 +8,40 @@ class History {
         $this->service = $service;
     }
 
-    public function run() {
+    /*
+     * Next level data function. Terrible comment.
+     * getData("Yesterday at 3pm", "March 12th 2012", "/evanbtcohen/feed");
+    */
+    function getData($start, $end) {
+
+        $query = '/'.$this->user.'/feed?limit=100';
+
+
+        global $facebookService;
+        $data = array();
+        $start = strtotime($start);
+        $end = strtotime($end);
+        do{
+            $result = json_decode($facebookService->request($query));
+            if (!count($result->data)) {
+                break;
+            }
+            $data = array_merge($data, $result->data);
+            if(property_exists($result, "paging") && property_exists($result->paging, "next")){
+                $query = $result->paging->next;
+            }
+        }
+        //
+        while(strtotime((string)(end($result->data)->created_time)) > $start);
+        
+        return $data;
+    }
+
+
+    public function run($data) {
 
         $prof = json_decode($this->service->request('/'. $this->user));
         $userId = $prof->id;
-
-        $val = $this->service->request('/'.$this->user.'/feed?limit=500');
-        $json = json_decode($val);
 
         $mutualFriends = json_decode($this->service->request("me/mutualfriends/".$userId."?fields=picture,name"));
         //die(var_dump($mutualFriends->data));
@@ -29,7 +56,8 @@ class History {
         $types = array();
         $storyArray = array();
 
-        foreach($json->data as $ele) {
+
+        foreach($data as $ele) {
             //die(var_dump($ele->status_type == "approved_friend"));
             if (property_exists($ele, "status_type") && $ele->status_type == "approved_friend") {
                 foreach($ele->story_tags as $tag) {
