@@ -8,11 +8,11 @@ $(document).ready(function(){
   	$('#login-username').hide();
   }
 
-  $(".large").mouseover(function(){
-  	$(".caption").show();
-  });
+  // $(".large").mouseover(function(){
+  // 	$(".caption").show();
+  // });
 
-  $(".large").mouseout(function(){
-  	$(".caption").hide();
-  });
+  // $(".large").mouseout(function(){
+  // 	$(".caption").hide();
+  // });
 });

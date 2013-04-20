@@ -12,10 +12,25 @@
       <!-- Images -->
       <div class="span8">
         <div class="images">
-          <img src="a" class="largepic" alt=""><br>
-          <img src="a" class="thumb" alt="">
-          <img src="a" class="thumb" alt="">
-          <img src="a" class="thumb" alt="">
+        <?php
+        $i = 0; 
+        foreach ($PAGE_VARS['types']['photos'] as $photo) {
+        	if($i == 0):?>
+        	<img src="<?= $photo['original']->picture?>" class="largepic" />
+        	<div class="caption">
+        		<span>penis</span>
+        	</div>
+        	<div class="statusnums">
+        		<img src="img/facebook-thumbs-up.png" />
+        		<span class="likes">15</span>
+        	</div>
+        	<?php else: ?>
+        	<img src="<?= $photo['original']->picture?>" class="thumb" / >
+        	<?php
+        	endif;
+        	$i++;
+        }
+        ?>
         </div>
         <!-- Mutual Friend list -->
         <!-- <div class="row"> -->

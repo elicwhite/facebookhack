@@ -74,17 +74,24 @@ h3 {
 }
 
 .images .statusnums, .thumb .statusnums {
-	float: right;
-	margin-top: -25px;
-	margin-right: 5px;
+	position: relative;
+	bottom: 40px;
+	right: 20px;
 }
 
 .caption {
-	display: none;
 	float: left;
-	margin-top: -295px;
-	margin-left: 10px;
-	width: 70%;
+	color: white;
+	position: relative;
+	bottom: 30px;
+	left: 15px;
+	text-shadow: 0px 0px 7px black, 0px 0px 10px black;
+}
+
+.statusnums{
+	color: white;
+	font-weight: bold;
+	text-shaddow: 0px 0px 10px black;
 }
 
 .largepic {
