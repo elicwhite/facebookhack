@@ -18,4 +18,9 @@ function _getPageContents(){
 	return implode("\n", $page_contents);
 }
 
+function redirect2self(){
+	$url = $_SERVER['PHP_SELF'];
+    header('Location: ' . $url);
+}
+
 ?>

@@ -32,8 +32,7 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
     if( !empty( $_GET['code'] ) ) {
         // This was a callback request from google, get the token
         $facebookService->requestAccessToken( $_GET['code'] );
-        $url = $_SERVER['PHP_SELF'];
-        header('Location: ' . $url);
+        redirect2self();
         die();
     } elseif( !empty($_GET['go'] ) && $_GET['go'] == 'go' ) {
         $url = $facebookService->getAuthorizationUri();
@@ -52,6 +51,8 @@ else
     if(isset($_GET['logout'])){
         $facebookService->getStorage()->clearToken();
         _add2page('<p class="well">Logout successfull!!!!!!!!!</p>');
+        redirect2self();
+        die();
     }else{
     // Show some of the resultant data
     _add2page('<a href="?logout" class="btn pull-right">Logout</a>');
