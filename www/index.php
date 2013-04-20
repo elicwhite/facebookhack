@@ -46,7 +46,14 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
 else{
     // Send a request with it
     $result = json_decode( $facebookService->request( '/me' ), true );
-    _add2page('<pre>'.$result.'</pre>');
+    if(isset($_GET['debug'])){
+        print '<pre>';
+        print_r($result);
+        $val = $facebookService->request('/'.$result['username'].'/feed');
+        $json = json_decode($val);
+        print_r($json);
+        print '</pre>';
+    }
 
     if(isset($_GET['logout'])){
         $facebookService->getStorage()->clearToken();
