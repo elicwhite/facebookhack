@@ -4,10 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Saros Framework</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-	<?php echo $this->headStyles()->appendFile("css/fbhack.min") ?>
 	<?php echo $this->headStyles()->appendFile("css/main.css") ?>
 	<?php echo $this->headScripts() ?>
 </head>
