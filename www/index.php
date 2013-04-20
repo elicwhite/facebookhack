@@ -8,7 +8,7 @@ require '../vendor/autoload.php';
 require 'smart.php';
 
 // In-memory storage
-$storage = new Memory();
+$storage = new \OAuth\Common\Storage\Session();
 
 $uriFactory = new \OAuth\Common\Http\Uri\UriFactory();
 $currentUri = $uriFactory->createFromSuperGlobalArray($_SERVER);
@@ -27,20 +27,31 @@ $serviceFactory = new \OAuth\ServiceFactory();
 /** @var $facebookService Facebook */
 $facebookService = $serviceFactory->createService('facebook', $credentials, $storage, [] );
 
-if( !empty( $_GET['code'] ) ) {
-    // This was a callback request from google, get the token
-    $token = $facebookService->requestAccessToken( $_GET['code'] );
 
+if (!$facebookService->getStorage()->hasAccessToken()) {
+    if( !empty( $_GET['code'] ) ) {
+        // This was a callback request from google, get the token
+        $facebookService->requestAccessToken( $_GET['code'] );
+        $url = $_SERVER['PHP_SELF'];
+        header('Location: ' . $url);
+    } elseif( !empty($_GET['go'] ) && $_GET['go'] == 'go' ) {
+        $url = $facebookService->getAuthorizationUri();
+        header('Location: ' . $url);
+        die();
+    } else {
+        $url = $currentUri->getRelativeUri() . '?go=go';
+        echo "<a href='$url'>Login with Facebook!</a>";
+    }
+}
+else
+{
     // Send a request with it
     $result = json_decode( $facebookService->request( '/me' ), true );
 
     // Show some of the resultant data
     echo 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
 
-} elseif( !empty($_GET['go'] ) && $_GET['go'] == 'go' ) {
-    $url = $facebookService->getAuthorizationUri();
-    header('Location: ' . $url);
-} else {
-    $url = $currentUri->getRelativeUri() . '?go=go';
-    echo "<a href='$url'>Login with Facebook!</a>";
+    if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
+        require_once("eli.php");
+    }
 }
