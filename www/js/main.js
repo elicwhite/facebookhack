@@ -7,4 +7,12 @@ $(document).ready(function(){
   } else {
   	$('#login-username').hide();
   }
+
+  $(".large").mouseover(function(){
+  	$(".caption").show();
+  });
+
+  $(".large").mouseout(function(){
+  	$(".caption").hide();
+  });
 });
