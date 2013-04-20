@@ -1,10 +1,4 @@
-<div id="search" class="container">
-    <div class='input-append'>
-      <input id="search-field" type="text" autocomplete="off" data-provide="typeahead" placeholder="Search friend..." />
-      <button id="search-button" class='btn add-on'>
-        <i class="icon-search"></i>
-      </button>
-    </div>
+
   </div>
     
   <div id="results" class="container">
