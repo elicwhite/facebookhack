@@ -1,6 +1,6 @@
 <?php
-         echo "foo";
+    $val = $facebookService->request('/evanbtcohen/feed');
+    $json = json_decode($val);
 
-         $val = $facebookService->request( '/evanbtcohen' );
-         die(var_dump($val));
+    die(var_dump($json->data));
 ?>
