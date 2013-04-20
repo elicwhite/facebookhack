@@ -148,7 +148,11 @@ class History {
         }
 
         if ($limit > 0) {
-            return array_slice($popStories, 0, $limit);
+            $slice = array_slice($popStories, 0, $limit);
+            if ($type == "photo") {
+                $slice = $this->fixPictures($slice);
+            }
+            return $slice;
         }
 
         //die(var_dump(count($popStories)));
@@ -169,6 +173,19 @@ class History {
             return $item["likes"] > $avg+$stdDev;
         });
 
+        if ($type == "photo") {
+            $results = $this->fixPictures($results);
+        }
+
         return $results;
+    }
+
+    function fixPictures($array) {
+        $foo = array_map(function($item) {
+            $req = json_decode($this->service->request("/".$item["original"]->object_id));
+            $item["original"]->picture = $req->images[2]->source;
+            return $item;
+        }, $array);
+        return $foo;
     }
 }
