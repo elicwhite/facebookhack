@@ -105,6 +105,11 @@ h3 {
 	overflow: hidden;
 }
 
+.banneroverflowwrapper img{
+	position: relative;
+	top: -20%;
+}
+
 .bottomImage {       
 	position: relative;
 	bottom: 30px;		       
@@ -185,6 +190,10 @@ h3 {
 #intro p {
 	font-size: 20pt;
 	line-height: normal;
+}
+
+form {
+	margin: 0px;
 }
 
 #login form, #login h2{

@@ -7,3 +7,4 @@
 09:39am Eli pushes the best exception of all time catch(Exception e){break;}
 09:43am Evan makes the .shiddy CSS class for text-shadow, everyone laughs becuse of sleep deprovation.
 10:40am Everyone is tired. Naps are needed.
+12:30pm Not really sure what is going on anymore. We have entered another reality in which code needs to be written more than once in order to run.
