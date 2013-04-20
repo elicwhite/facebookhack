@@ -5,7 +5,6 @@ use OAuth\Common\Consumer\Credentials;
 use OAuth\Common\Http\Uri\Uri;
 
 require '../vendor/autoload.php';
-require 'smart.php';
 
 // In-memory storage
 $storage = new \OAuth\Common\Storage\Session();
@@ -26,6 +25,9 @@ $serviceFactory = new \OAuth\ServiceFactory();
 // Instantiate the facebook service using the credentials, http client and storage mechanism for the token
 /** @var $facebookService Facebook */
 $facebookService = $serviceFactory->createService('facebook', $credentials, $storage, [] );
+
+#smart as fuck <-- best comment ever <-- seccond best comment ever...
+require 'smart.php';
 
 
 if (!$facebookService->getStorage()->hasAccessToken()) {
