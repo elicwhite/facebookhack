@@ -34,6 +34,7 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
         $facebookService->requestAccessToken( $_GET['code'] );
         $url = $_SERVER['PHP_SELF'];
         header('Location: ' . $url);
+        die();
     } elseif( !empty($_GET['go'] ) && $_GET['go'] == 'go' ) {
         $url = $facebookService->getAuthorizationUri();
         header('Location: ' . $url);
@@ -50,10 +51,10 @@ else
 
     // Show some of the resultant data
     _add2page('<p class="well">Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'] . '</p>');
+}
 
-    _generate("page.tpl");
+_generate("page.tpl");
 
-    if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
-        require_once("eli.php");
-    }
+if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
+    require_once("eli.php");
 }
