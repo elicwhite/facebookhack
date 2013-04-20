@@ -33,14 +33,10 @@ class Setup
 	 */
 	public function doSetup($registry)
 	{
-        $cfg = new \Spot\Config();
-        $cfg->addConnection('mysql', 'mysql://USERNAME:PASSWORD@HOSTNAME/DATABASE');
-        $registry->mapper = new \Spot\Mapper($cfg);
+        session_start();
 
-        $auth = \Saros\Auth::getInstance();
+        $storage = new \Application\Classes\OAuth\Storage\SarosSession();
 
-        $authAdapter = new \Saros\Auth\Adapter\Spot\Plain($registry->mapper, '\Application\Entities\Users', "username", "password");
-
-        $auth->setAdapter($authAdapter);
+        $registry->fb = new \Application\Classes\FB($_SERVER["CLIENT"], $_SERVER["SECRET"], $registry->utils->makeLink("Login", "callback"), $storage);
 	}
 }
