@@ -49,8 +49,14 @@ else
     // Send a request with it
     $result = json_decode( $facebookService->request( '/me' ), true );
 
+    if(isset($_GET['logout'])){
+        $facebookService->getStorage()->clearToken();
+        _add2page('<p class="well">Logout successfull!!!!!!!!!</p>');
+    }else{
     // Show some of the resultant data
+    _add2page('<a href="?logout" class="btn pull-right">Logout</a>');
     _add2page('<p class="well">Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'] . '</p>');
+    }
 }
 
 _generate("page.tpl");
