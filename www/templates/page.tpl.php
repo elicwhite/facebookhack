@@ -32,7 +32,9 @@
             foreach ($photos as $photo) { ?>
             <a href="<?= $photo['original']->link?>">
               <div class="thumbwrapper">
-                <img src="<?= $photo['original']->picture?>" class="thumb" />
+                <div class="thumboverflowwrapper">
+                  <img src="<?= $photo['original']->picture?>" class="thumb" />
+                </div>
               </div>
             </a>
             <?php

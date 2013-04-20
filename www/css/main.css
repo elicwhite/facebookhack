@@ -133,12 +133,21 @@ h3 {
 	height: 300px;
 }
 
-.thumb {
-	vertical-align: baseline;
-	margin-left: 6px;
-	margin-top: 5px;
-	width: 32%;
-	float: left;
+.smallImages {
+	overflow: hidden;
+	margin-top: 10px;
+	display : -webkit-flex;
+}
+
+.thumboverflowwrapper {
+	overflow: hidden;
+	max-height: 150px;
+}
+
+.thumbwrapper {
+	padding: 3px;
+	border: 1px solid #ccc;
+	margin-left: 4px;
 }
 
 .thumb img {
