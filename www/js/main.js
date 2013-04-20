@@ -1,11 +1,13 @@
 'use strict';
 
-var IS_LOGGED_IN = true; 
+var IS_LOGGED_IN = false; 
 $(document).ready(function(){
   if (IS_LOGGED_IN) {
+    $("#intro").hide();
   	$('#login').hide();
   } else {
   	$('#login-username').hide();
+    
   }
 
   // $(".large").mouseover(function(){
