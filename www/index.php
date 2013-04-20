@@ -32,7 +32,6 @@ $PAGE_VARS = array();
 require 'smart.php';
 require_once("history.php");
 
-
 if (!$facebookService->getStorage()->hasAccessToken()) {
     if( !empty( $_GET['code'] ) ) {
         // This was a callback request from google, get the token
