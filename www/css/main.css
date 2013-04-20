@@ -8,12 +8,33 @@ body
 
 #login {
 	width: 200px;
+}
+
+#search {
+	width: 330px;
+}
+
+#login, #search, #results {
 	padding: 10px;
-	border: 3px solid black;
+	border: 2px solid grey;
 	border-radius: 10px;
+	margin-bottom: 10px;
+	background-color: #eeeeee;
 }
 
 #login form, #login h2{
+	margin: 0px;
+}
+
+#search-button {
+	height:26px;
+}
+
+#search-field {
+	width: 300px;
+}
+
+.input-append {
 	margin: 0px;
 }
 
