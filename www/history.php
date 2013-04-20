@@ -31,7 +31,6 @@ class History {
                 $query = $result->paging->next;
             }
         }
-        //
         while(strtotime((string)(end($result->data)->created_time)) > $start);
         
         return $data;
