@@ -19,7 +19,9 @@
         	<img src="<?= $photo['original']->picture?>" class="largepic" />
         	<div class="bottomImage">
             <div class="caption">
-          		<span>penis</span>
+              <?php if(property_exists($photo['original'], "message")): ?>
+          		  <span><?= Truncate($photo['original']->message, 65) ?></span>
+              <?php endif ?>
           	</div>
           	<div class="statusnums">
           		<img src="img/facebook-thumbs-up.png" />
