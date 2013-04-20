@@ -60,12 +60,16 @@
         		?>
     		  <div class="status">
             <div class="statusContent">
-              <div class="statusTop">
-                <div class="avatar">
-                  <img src="http://graph.facebook.com/<?=$_GET['friend']?>/picture" />
+                <div class="statusTop">
+                  <div class="avatar">
+                    <a href="http://facebook.com/<?=$_GET['friend']?>">
+                      <img src="http://graph.facebook.com/<?=$_GET['friend']?>/picture" />
+                    </a>
+                  </div>
+                  <a href="http://facebook.com/<?=$status["original"]->id?>">
+                    <p><?=$status["original"]->message ?></p>
+                  </a>
                 </div>
-                <p><?=$status["original"]->message ?></p>
-              </div>
               <div class="statusbottom">
                 <div class="datestamp pull-left">
                   <span><?= Utils::formatDate($status['original']->created_time) ?></span>

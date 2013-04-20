@@ -46,6 +46,7 @@ h3 {
 	margin-bottom: 10px;
 }
 
+
 .status .avatar {
 	float: left;
 	margin-right: 10px;
@@ -58,6 +59,11 @@ h3 {
 
 .statusTop {
 	overflow: hidden;
+}
+
+.statusTop a {
+	color: inherit;
+	text-decoration: none;
 }
 
 .statusbottom {
