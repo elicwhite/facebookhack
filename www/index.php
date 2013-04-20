@@ -29,8 +29,11 @@ $facebookService = $serviceFactory->createService('facebook', $credentials, $sto
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
 require 'smart.php';
 require_once("history.php");
-$fbHistory = new History();
-$fbHistory->run($facebookService);
+
+if(isset($_GET['friend'])){
+    $fbHistory = new History($facebookService, $_GET['friend']);
+    $fbHistory->run();
+}
 
 _generate("head.tpl");
 

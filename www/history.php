@@ -1,16 +1,23 @@
 <?php
 class History {
 
-    public function run($facebookService) {
+    public $user;
+    private $service;
 
-        $user = "evanbtcohen";
-        $prof = json_decode($facebookService->request('/'.$user));
+    public function __construct($service, $user){
+        $this->user = $user;
+        $this->service = $service;
+    }
+
+    public function run() {
+
+        $prof = json_decode($this->service->request('/'. $this->user));
         $userId = $prof->id;
 
-        $val = $facebookService->request('/'.$user.'/feed?limit=500');
+        $val = $this->service->request('/'.$this->user.'/feed?limit=500');
         $json = json_decode($val);
 
-        $mutualFriends = json_decode($facebookService->request("me/mutualfriends/".$userId));
+        $mutualFriends = json_decode($this->service->request("me/mutualfriends/".$userId));
         //die(var_dump($mutualFriends->data));
         $mut = array();
         foreach ($mutualFriends->data as $friend) {
