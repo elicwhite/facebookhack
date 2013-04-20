@@ -3,7 +3,41 @@ body
 	font-size: 12px;
 	font-family: "Lucida Grande", "Calibri", Verdana, Arial, sans-serif;
 	background: #DFE8F3  url('../images/bodybg.gif') repeat-x;
+	padding-top: 60px;
 }
+
+#login {
+	width: 200px;
+}
+
+#search {
+	width: 330px;
+}
+
+#login, #search, #results {
+	padding: 10px;
+	border: 2px solid grey;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	background-color: #eeeeee;
+}
+
+#login form, #login h2{
+	margin: 0px;
+}
+
+#search-button {
+	height:26px;
+}
+
+#search-field {
+	width: 300px;
+}
+
+.input-append {
+	margin: 0px;
+}
+
 #container
 {
 	width: 600px;
