@@ -17,13 +17,15 @@
         foreach ($PAGE_VARS['types']['photos'] as $photo) {
         	if($i == 0):?>
         	<img src="<?= $photo['original']->picture?>" class="largepic" />
-        	<div class="caption">
-        		<span>penis</span>
-        	</div>
-        	<div class="statusnums">
-        		<img src="img/facebook-thumbs-up.png" />
-        		<span class="likes">15</span>
-        	</div>
+        	<div class="bottomImage">
+            <div class="caption">
+          		<span>penis</span>
+          	</div>
+          	<div class="statusnums">
+          		<img src="img/facebook-thumbs-up.png" />
+          		<span class="likes">15</span>
+          	</div>
+          </div>
         	<?php else: ?>
         	<img src="<?= $photo['original']->picture?>" class="thumb" / >
         	<?php

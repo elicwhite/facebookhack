@@ -8,6 +8,7 @@ body
 }
 
 h3 {
+	clear: both;
 	text-align: center;
 }
 
@@ -73,25 +74,28 @@ h3 {
 	margin-top: 0px;
 }
 
-.images .statusnums, .thumb .statusnums {
+.bottomImage {
 	position: relative;
 	bottom: 40px;
-	right: 20px;
 }
 
 .caption {
 	float: left;
 	color: white;
-	position: relative;
-	bottom: 30px;
-	left: 15px;
+	margin-left: 15px;
 	text-shadow: 0px 0px 7px black, 0px 0px 10px black;
+	font-size: larger;
+}
+
+.statusnums img {
+	vertical-align: middle;
 }
 
 .statusnums{
 	color: white;
 	font-weight: bold;
 	text-shaddow: 0px 0px 10px black;
+	margin-right: 15px;
 }
 
 .largepic {
