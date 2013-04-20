@@ -40,7 +40,7 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
         die();
     } else {
         $url = $currentUri->getRelativeUri() . '?go=go';
-        echo "<a href='$url'>Login with Facebook!</a>";
+        _add2page("<a class='btn' href='$url'>Login with Facebook!</a>");
     }
 }
 else
@@ -49,7 +49,9 @@ else
     $result = json_decode( $facebookService->request( '/me' ), true );
 
     // Show some of the resultant data
-    echo 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
+    _add2page('Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name']);
+
+    _generate("page.tpl");
 
     if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
         require_once("eli.php");
