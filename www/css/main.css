@@ -145,11 +145,8 @@ h3 {
 	width: 340px;
 }
 
-<<<<<<< HEAD
+
 #login, #search, #results, #intro, .card {
-=======
-#login, #search, #results, .card {
->>>>>>> 32ae27af7ea292372cf1095c4f83effa26d20e07
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
