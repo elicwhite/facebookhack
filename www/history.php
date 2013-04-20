@@ -67,26 +67,33 @@ class History {
             return $a["likes"] < $b["likes"];
         });
 
+        $newMutFriends = array_filter($mut, function($user) use ($newFriends) {
+            return in_array($user->id, $newFriends);
+        });
+
+
 
         $newStories = array(
+            "mutualFriends" => $newMutFriends,
             "photos" => $this->getImportant("photo", $storyArray, 4),
             "status" => $this->getImportant("status", $storyArray),
             "link" => $this->getImportant("link", $storyArray)
         );
 
+        return $newStories;
+    }
+
+    function formatData($data) {
+
         echo "new mutual friends";
 
-        $newMutFriends = array_filter($mut, function($user) use ($newFriends) {
-            return in_array($user->id, $newFriends);
-        });
-        foreach($newMutFriends as $newFriend) {
+        foreach($data["mutualFriends"] as $newFriend) {
             echo '<img src="'.$newFriend->picture->data->url.'" />';
         }
         
         echo "<br />";
         
-        
-        foreach($newStories as $type => $list) {
+        foreach(array($newStories["photos"], $newStories["status"], $newStories["link"])  as $type => $list) {
             echo "Type: ".$type."<br />";
             echo "<ul>";
             foreach($list as $story) {
@@ -99,7 +106,7 @@ class History {
         }
         
         echo "<br />\n";
-        var_dump($types);
+        
     }
 
     function getImportant($type, $stories, $limit = 0) {
