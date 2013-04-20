@@ -5,6 +5,7 @@ use OAuth\Common\Consumer\Credentials;
 use OAuth\Common\Http\Uri\Uri;
 
 require '../vendor/autoload.php';
+require 'smart.php';
 
 // In-memory storage
 $storage = new Memory();
