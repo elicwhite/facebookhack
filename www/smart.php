@@ -27,7 +27,7 @@ function redirect2self(){
 //die(var_dump($facebookService));
 //var_dump($facebookService->request('https://graph.facebook.com/1032810646/feed?limit=25&until=1363574824'));
 
-var_dump(getData('April 2012', 'March 2013', '/evanbtcohen/feed'));
+///var_dump(end(getData('April 2012', 'March 2013', '/evanbtcohen/feed?limit=500')));
 /*
  * Next level data function. Terrible comment.
  * getData("Yesterday at 3pm", "March 12th 2012", "/evanbtcohen/feed");
@@ -47,6 +47,7 @@ function getData($start, $end, $query) {
 			$query = $result->paging->next;
 		}
 	}
+	//
 	while(strtotime((string)(end($result->data)->created_time)) > $start);
 	return $data;
 }
