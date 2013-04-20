@@ -15,10 +15,12 @@ class History {
     function getData($start, $end) {
 
         $query = '/'.$this->user.'/feed?limit=100';
-
-
         global $facebookService;
         $data = array();
+
+        #ensure that actual dates are used
+        if($start ==""){$start = "3 months ago";}
+        if($end == ""){$end = "now";}
         $start = strtotime($start);
         $end = strtotime($end);
         do{
