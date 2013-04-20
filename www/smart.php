@@ -8,6 +8,14 @@ function _generate($template){
 	require_once('templates/' . $template . '.php');
 }
 
+function _condIns($var){
+    global $PAGE_VARS;
+    if(!isset($PAGE_VARS[$var])){
+        return "";
+    }
+    return $PAGE_VARS[$var];
+}
+
 function _add2page($add){
 	global $page_contents;
 	array_push($page_contents, $add);

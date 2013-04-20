@@ -45,7 +45,7 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
         die();
     } else {
         $url = $currentUri->getRelativeUri() . '?go=go';
-        $PAGE_VARS['user_button'] = "<a class='btn' href='$url'>Login with Facebook!</a>";
+        $PAGE_VARS['user_button'] = "<a href='$url'>Login with Facebook!</a>";
     }
 }
 else{
@@ -66,8 +66,7 @@ else{
         die();
     }else{
     // Show some of the result data
-    $PAGE_VARS['user_button'] = '<a href="?logout" class="btn pull-right">Logout</a>';
-    echo('<p class="well">Your unique facebook user id is: ' . $fbUser['id'] . ' and your name is ' . $fbUser['name'] . '</p>');
+    $PAGE_VARS['user_button'] = '<a href="?logout">Logout</a>';
     }
 }
 

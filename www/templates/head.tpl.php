@@ -3,8 +3,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Facebook Re-connect</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /><!-- Fbootstrapp -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /><!-- Fbootstrapp -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-custom.css" /> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
@@ -19,3 +18,4 @@
         </div>
       </div>
     </div>
+    <div class="container">
