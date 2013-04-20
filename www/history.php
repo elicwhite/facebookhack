@@ -181,11 +181,16 @@ class History {
     }
 
     function fixPictures($array) {
-        $foo = array_map(function($item) {
-            $req = json_decode($this->service->request("/".$item["original"]->object_id));
-            $item["original"]->picture = $req->images[2]->source;
-            return $item;
-        }, $array);
-        return $foo;
+        foreach($array as $photo) {
+            try 
+            {
+                $photo["original"]->picture = json_decode($this->service->request("/".$photo["original"]->object_id))->images[2]->source;
+            }
+            catch(\Exception $e) {
+                break;
+            }            
+        }
+
+        return $array;
     }
 }
