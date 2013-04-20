@@ -49,7 +49,7 @@ else
     $result = json_decode( $facebookService->request( '/me' ), true );
 
     // Show some of the resultant data
-    _add2page('Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name']);
+    _add2page('<p class="well">Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'] . '</p>');
 
     _generate("page.tpl");
 
