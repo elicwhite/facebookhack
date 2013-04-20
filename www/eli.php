@@ -71,6 +71,9 @@
     echo "likes in stories";
     echo "<ul>";
     foreach($storyArray as $story) {
+        if (property_exists($story["original"], "picture")) {
+            echo '<img src="'.$story["original"]->picture.'" />';
+        }
         echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
     }
     echo "</ul>";

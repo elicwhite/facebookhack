@@ -24,7 +24,7 @@ $serviceFactory = new \OAuth\ServiceFactory();
 
 // Instantiate the facebook service using the credentials, http client and storage mechanism for the token
 /** @var $facebookService Facebook */
-$facebookService = $serviceFactory->createService('facebook', $credentials, $storage, [] );
+$facebookService = $serviceFactory->createService('facebook', $credentials, $storage, ["read_stream", "user_activities", "user_checkins", "user_photos", "user_status", "user_videos"] );
 
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
 require 'smart.php';
