@@ -43,10 +43,10 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
         _add2page("<a class='btn' href='$url'>Login with Facebook!</a>");
     }
 }
-else
-{
+else{
     // Send a request with it
     $result = json_decode( $facebookService->request( '/me' ), true );
+    _add2page('<pre>'.$result.'</pre>');
 
     if(isset($_GET['logout'])){
         $facebookService->getStorage()->clearToken();
