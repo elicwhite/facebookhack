@@ -61,7 +61,7 @@
       		?>
   		<div class="status">
           <p><?=$status["original"]->message ?></p>
-          <div class="statusnums">No likes, loser!</div>
+          <div class="statusnums"><?= $status['likes'] ?> likes</div>
         </div>
       		<?php
       	}
