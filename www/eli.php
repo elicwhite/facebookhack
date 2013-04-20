@@ -6,6 +6,13 @@
     $val = $facebookService->request('/'.$user.'/feed?limit=500');
     $json = json_decode($val);
 
+    $mutualFriends = json_decode($facebookService->request("me/mutualfriends/".$userId));
+    //die(var_dump($mutualFriends->data));
+    $mut = array();
+    foreach ($mutualFriends->data as $friend) {
+        $mut[] = $friend->name;
+    }
+
     $newFriends = array();
     $stories = 0;
 
@@ -46,9 +53,16 @@
         $stories++;
     }
 
-    echo "new friends";
+    usort($storyArray, function ($a, $b) {
+        return $a["likes"] < $b["likes"];
+    });
+
+    $storyArray = getImportant($storyArray);
+
+    echo "new mutual friends";
     echo "<ul>";
-    foreach($newFriends as $newFriend) {
+    $newMutFriends = array_intersect($newFriends, $mut);
+    foreach($newMutFriends as $newFriend) {
         echo "<li>".$newFriend."</li>";
     }
     echo "</ul>";
@@ -64,4 +78,22 @@
     echo "<br />\n";
     var_dump($types);
     
+    function getImportant($stories) {
+        $avg = array_reduce($stories, function($acc, $item) {
+            return $acc + $item["likes"];
+        }) / count($stories);
+
+        $distFromAvg = array_map(function($item) use ($avg) {
+            $dist = round($item["likes"] - $avg);
+            return $dist;
+        }, $stories);
+
+        $stdDev = sqrt(array_sum($distFromAvg) / count($stories));
+
+        $results = array_filter($stories, function($item) use ($avg, $stdDev){
+            return $item["likes"] > $avg+$stdDev;
+        });
+
+        return $results;
+    }
 ?>
