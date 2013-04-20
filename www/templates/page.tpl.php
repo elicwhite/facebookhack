@@ -1,1 +1,1 @@
-	<?= _getPageContents(); ?>
+<?php var_dump($PAGE_VARS['types']); ?>

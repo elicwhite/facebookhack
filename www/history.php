@@ -1,6 +1,5 @@
 <?php
 class History {
-
     public $user;
     private $service;
 

@@ -26,16 +26,12 @@ $serviceFactory = new \OAuth\ServiceFactory();
 /** @var $facebookService Facebook */
 $facebookService = $serviceFactory->createService('facebook', $credentials, $storage, ["read_stream", "user_activities", "user_checkins", "user_photos", "user_status", "user_videos"] );
 
+$PAGE_VARS = array();
+
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
 require 'smart.php';
 require_once("history.php");
 
-if(isset($_GET['friend'])){
-    $fbHistory = new History($facebookService, $_GET['friend']);
-    $fbHistory->run();
-}
-
-_generate("head.tpl");
 
 if (!$facebookService->getStorage()->hasAccessToken()) {
     if( !empty( $_GET['code'] ) ) {
@@ -49,16 +45,16 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
         die();
     } else {
         $url = $currentUri->getRelativeUri() . '?go=go';
-        echo("<a class='btn' href='$url'>Login with Facebook!</a>");
+        $PAGE_VARS['user_button'] = "<a class='btn' href='$url'>Login with Facebook!</a>";
     }
 }
 else{
     // Send a request with it
-    $result = json_decode( $facebookService->request( '/me' ), true );
+    $fbUser = json_decode( $facebookService->request( '/me' ), true );
     if(isset($_GET['debug'])){
         print '<pre>';
-        print_r($result);
-        $val = $facebookService->request('/'.$result['username'].'/feed');
+        print_r($fbUser);
+        $val = $facebookService->request('/'.$fbUser['username'].'/feed');
         $json = json_decode($val);
         print_r($json);
         print '</pre>';
@@ -69,10 +65,20 @@ else{
         redirect2self();
         die();
     }else{
-    // Show some of the resultant data
-    echo('<a href="?logout" class="btn pull-right">Logout</a>');
-    echo('<p class="well">Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'] . '</p>');
+    // Show some of the result data
+    $PAGE_VARS['user_button'] = '<a href="?logout" class="btn pull-right">Logout</a>';
+    echo('<p class="well">Your unique facebook user id is: ' . $fbUser['id'] . ' and your name is ' . $fbUser['name'] . '</p>');
     }
+}
+
+
+
+_generate("head.tpl");
+
+if(isset($_GET['friend'])){
+    $fbHistory = new History($facebookService, $_GET['friend']);
+    $PAGE_VARS['types'] = $fbHistory->run();
+    _generate("page.tpl");
 }
 
 _generate("footer.tpl");
