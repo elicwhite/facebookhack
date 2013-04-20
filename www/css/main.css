@@ -14,10 +14,20 @@ body
 	width: 340px;
 }
 
-/*#results {
-	width: 50px;
+#results {
+	width: 1020px;
 }
-*/
+
+.row div {
+	border: 2px solid red;
+}
+
+.item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	height: 480px;
+}
 
 #login, #search, #results, .card {
 	padding: 10px;
