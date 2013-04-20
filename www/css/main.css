@@ -136,10 +136,6 @@ h3 {
 	width: 340px;
 }
 
-#results {
-	width: 1020px;
-}
-
 #login, #search, #results, .card {
 	padding: 10px;
 	border: 2px solid grey;
