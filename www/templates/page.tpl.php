@@ -14,8 +14,9 @@
         <div class="images">
         <?php
         $i = 0; 
-        foreach ($PAGE_VARS['types']['photos'] as $photo) {
-        	if($i == 0): ?>
+        foreach ($PAGE_VARS['types']['photos'] as $photo) { ?>
+        <a href="<?= $photo['original']->link?>">
+        	<?php if($i == 0): ?>
         	<img src="<?= $photo['original']->picture?>" class="largepic" />
         	<div class="bottomImage">
             <div class="caption shiddy">
@@ -33,6 +34,9 @@
         	<?php
         	endif;
         	$i++;
+        	?>
+        </a>
+        <?php
         }
         ?>
         </div>
