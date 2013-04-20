@@ -1,10 +1,14 @@
 body
 {
-	font-size: 12px;
+	font-size: 12pt;
 	font-family: "Lucida Grande", "Calibri", Verdana, Arial, sans-serif;
 	background: #E9EAED url('../images/bodybg.gif') repeat-x;
 	padding-top: 60px;
 	overflow: scroll;
+}
+
+h3 {
+	text-align: center;
 }
 
 .item img {
@@ -26,7 +30,8 @@ body
 }
 
 .status {
-	width: 100%;
+	width: 115%;
+	padding: 10px;
 	background-color: white;
 	border: 1px solid #D3D6DB;
 	border-radius: 4px;
@@ -34,6 +39,33 @@ body
 
 .input-append {
 	margin: 0px;
+}
+
+.mutualfriend {
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.mutualfriend  img{
+	width: 40px;
+	height: 40px;
+}
+
+.row {
+	margin-top: 0px;
+}
+
+.largepic {
+	width: 100%;
+	height: 300px;
+}
+
+.thumb {
+	vertical-align: baseline;
+	margin-left: 4px;
+	margin-top: 5px;
+	width: 32%;
 }
 
 #login form, #login h2{
