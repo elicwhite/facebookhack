@@ -7,6 +7,10 @@ body
 	overflow: scroll;
 }
 
+h1 {
+	text-align: center;
+}
+
 h3 {
 	clear: both;
 	text-align: center;
@@ -116,6 +120,11 @@ h3 {
 	height: 100%;
 }
 
+#intro p {
+	font-size: 20pt;
+	line-height: normal;
+}
+
 #login form, #login h2{
 	margin: 0px;
 }
@@ -133,10 +142,11 @@ h3 {
 }
 
 #search {
-	width: 340px;
+	text-align: center;
 }
 
-#login, #search, #results, .card {
+
+#login, #search, #results, #intro, .card {
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
