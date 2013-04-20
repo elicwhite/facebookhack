@@ -51,10 +51,10 @@ function getData($start, $end, $query) {
 	while(strtotime((string)(end($result->data)->created_time)) > $start);
 	return $data;
 }
-
+/*
 if(isset($_GET['friend'])){
     loadFriendData($_GET['friend']);
-}
+}*/
 
 function loadFriendData($username){
 	global $facebookService;
@@ -115,7 +115,12 @@ function loadFriendData($username){
         return $a["likes"] < $b["likes"];
     });
 
-    $storyArray = getImportant($storyArray);
+
+    $newStories = array(
+        "photos" => getImportant("photo", $storyArray, 4),
+        "status" => getImportant("status", $storyArray),
+        "link" => getImportant("link", $storyArray)
+    );
 
     echo "new mutual friends";
     echo "<ul>";
@@ -126,16 +131,19 @@ function loadFriendData($username){
     echo "</ul>";
     echo "<br />";
     
-    echo "likes in stories";
-    echo "<ul>";
-    foreach($storyArray as $story) {
-        if (property_exists($story["original"], "picture")) {
-            echo '<img src="'.$story["original"]->picture.'" />';
+    
+    foreach($newStories as $type => $list) {
+        echo "Type: ".$type."<br />";
+        echo "<ul>";
+        foreach($list as $story) {
+            if (property_exists($story["original"], "picture")) {
+                echo '<img src="'.$story["original"]->picture.'" />';
+            }
+            echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
         }
-        echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
+        echo "</ul>";
     }
-    echo "</ul>";
-
+    
     echo "<br />\n";
     var_dump($types);
 }

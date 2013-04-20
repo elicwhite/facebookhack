@@ -28,6 +28,10 @@ $facebookService = $serviceFactory->createService('facebook', $credentials, $sto
 
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
 require 'smart.php';
+require_once("history.php");
+$fbHistory = new History();
+$fbHistory->run($facebookService);
+
 _generate("head.tpl");
 
 if (!$facebookService->getStorage()->hasAccessToken()) {
@@ -69,9 +73,3 @@ else{
 }
 
 _generate("footer.tpl");
-
-if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
-    require_once("eli.php");
-    $eli = new Eli();
-    $eli->run($facebookService);
-}
