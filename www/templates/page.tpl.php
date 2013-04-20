@@ -10,9 +10,11 @@
             $photos = $PAGE_VARS['types']['photos'];
             $photo = array_shift($photos);
           ?>
-          <div class="bannerImage">
-            <a href="<?= $photo['original']->link?>">
-              <img src="<?= $photo['original']->picture?>" class="largepic" />
+          <a href="<?= $photo['original']->link?>">
+            <div class="bannerImage">
+              <div class="banneroverflowwrapper">
+                <img src="<?= $photo['original']->picture?>" class="largepic" />
+              </div>
               <div class="bottomImage">
                 <div class="caption shiddy">
                   <?php if(property_exists($photo['original'], "message")): ?>
