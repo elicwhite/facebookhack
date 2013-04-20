@@ -20,110 +20,15 @@
         <!-- Mutual Friend list -->
         <!-- <div class="row"> -->
           <h3>Mutual Friends</h3>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
-          <div class="mutualfriend">
-            <img src="a" alt="">
-            Mutual Friend
-          </div>
+        <?php
+        foreach ($PAGE_VARS['types']['mutualFriends'] as $friend) {
+        	?>
+        	<div class="mutualfriend">
+	            <img src="<?=$friend->picture->data->url?>"/>;
+          	</div>
+        	<?php	
+        }
+        ?>
         <!-- </div> -->
       </div>
       <!-- Status feeds -->
