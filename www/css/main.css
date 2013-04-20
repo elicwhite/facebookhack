@@ -52,11 +52,6 @@ h3 {
 	padding-bottom: 5px;
 }
 
-.status > div :not(.statusnums) {
-	width: 100%;
-	background-color: #d3d6db;
-}
-
 .statusnums {
 	float: right;
 }
@@ -111,6 +106,7 @@ h3 {
 .statusnums img {
 	vertical-align: middle;
 	width: 20px;
+	margin-bottom:3px;
 }
 
 .status .statusnums {	
