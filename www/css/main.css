@@ -42,7 +42,7 @@ h3 {
 	border-radius: 4px;
 	overflow: hidden;
 	padding-bottom: 0;
-	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .status p {
@@ -60,14 +60,19 @@ h3 {
 	margin: 0px;
 }
 
+.mutualFriends {
+	display : -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	-webkit-justify-content: space-around;
+}
+
 .mutualfriend {
-	display: inline-block;
-	margin-right: 4px;
+	margin-right: 5px;
 	margin-bottom: 5px;
 	font-size: 0;
 }
 
-.mutualfriend  img{
+.mutualfriend img{
 	width: 40px;
 	height: 40px;
 }
@@ -76,18 +81,21 @@ h3 {
 	margin-top: 0px;
 }
 
-.bottomImage {
-	position: relative;        
-	bottom: 40px;		       
-	bottom: 25px;
+.bottomImage {       
+	position: relative;
+	bottom: 30px;		       
 	float: left;	
 	margin-bottom: -40px;			
 	width: 100%;			
-}			
+}	
+
+.thumboverflowwrapper .bottomImage {
+	bottom: 80px;
+}		
 				
 .bottomImage .statusnums{			
 	float: right;			
-	margin-right: 10px;			
+	margin-right: 25px;			
 }			
 			
 .images {			
@@ -105,17 +113,14 @@ h3 {
 .statusnums img {
 	vertical-align: middle;
 	width: 20px;
-	margin-bottom:3px;
-}
-
-.status .statusnums {	
-    margin-top: 2px;			
+	margin-bottom: 5px;
+	margin-top: 2px;
 }
 
 .statusnums{
+	margin-top: 2px;	
 	color: white;
 	font-weight: bold;
-	margin-right: 15px;
 }
 
 .status .statusnums{
@@ -132,12 +137,21 @@ h3 {
 	height: 300px;
 }
 
-.thumb {
-	vertical-align: baseline;
-	margin-left: 6px;
-	margin-top: 5px;
-	width: 32%;
-	float: left;
+.smallImages {
+	overflow: hidden;
+	margin-top: 10px;
+	display : -webkit-flex;
+}
+
+.thumboverflowwrapper {
+	overflow: hidden;
+	max-height: 150px;
+}
+
+.thumbwrapper {
+	padding: 3px;
+	border: 1px solid #ccc;
+	margin-left: 4px;
 }
 
 .thumb img {

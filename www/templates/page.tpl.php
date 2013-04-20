@@ -32,7 +32,15 @@
             foreach ($photos as $photo) { ?>
             <a href="<?= $photo['original']->link?>">
               <div class="thumbwrapper">
-                <img src="<?= $photo['original']->picture?>" class="thumb" />
+                <div class="thumboverflowwrapper">
+                  <img src="<?= $photo['original']->picture?>" class="thumb" />
+                </div>
+                <div class="bottomImage">
+                  <div class="statusnums">
+                    <img src="img/facebook-thumbs-up.png" />
+                    <span class="likes shiddy"><?= $photo['likes'] ?></span>
+                  </div>
+                </div>
               </div>
             </a>
             <?php
@@ -41,22 +49,10 @@
           </div>
 
         </div>
-        <!-- Mutual Friend list -->
-        <!-- <div class="row"> -->
-        <h3>Mutual Friends</h3>
-        <?php
-        foreach ($PAGE_VARS['types']['mutualFriends'] as $friend) {
-        ?>
-        	<div class="mutualfriend">
-            <img src="<?=$friend->picture->data->url?>"/>
-        	</div>
-        	<?php	
-        }
-        ?>
-        <!-- </div> -->
       </div>
       <!-- Status feeds -->
       <div class="span4">
+<<<<<<< HEAD
         <h3>Popular Statuses</h3>
       	<?php
       	foreach ($PAGE_VARS['types']['status'] as $status) {
@@ -67,11 +63,37 @@
           <div class="statusnums">      
             <img src="img/facebook-thumbs-up.png" >     
             <?= $status['likes'] ?>     
+=======
+      	<div class="statuses">
+          <?php
+        	foreach ($PAGE_VARS['types']['status'] as $status) {
+        		?>
+    		  <div class="status">
+            <p><?=$status["original"]->message ?></p>
+            <div class="statusnums">      
+              <img src="img/facebook-thumbs-up.png" >     
+              <?= $status['likes'] ?>     
+            </div>
+>>>>>>> a48f2193c325a2515a0ec62520e5ff9695ec3865
           </div>
+        		<?php
+         
+        	}
+          ?>
         </div>
-      		<?php
-      	}
-      	?>
+        <div class="mutualFriends">
+          <?php
+          foreach ($PAGE_VARS['types']['mutualFriends'] as $friend) {
+            for ($i = 0; $i < 2; $i++) {
+          ?>
+            <div class="mutualfriend">
+              <img src="<?=$friend->picture->data->url?>"/>
+            </div>
+            <?php 
+             }
+          }
+          ?>
+        </div>
       </div>  
     </div>
     <div class="row">

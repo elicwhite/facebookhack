@@ -20,17 +20,17 @@
       </div>
     </div>
     <div id="search" class="container">
-    <div class="input-append">
-      <input id="search-field" type="text" autocomplete="off" data-provide="typeahead" placeholder="Search friend...">
-    </div>
-    <div class="input-append">
-      <input id="start-date" type="text" autocomplete="off" data-provide="typeahead" placeholder="Start date">
-    </div>
-    <div class="input-append">
-      <input id="end-date" type="text" autocomplete="off" data-provide="typeahead" placeholder="End date">
-    </div>
-    <button id="search-button" class="btn add-on">
-      <i class="icon-search"></i>
-      Search
-    </button>
+    <form action="" method="get">
+      <div class="input-append">
+        <input id="search-field" type="text" name="friend" autocomplete="off" data-provide="typeahead" placeholder="Search friend...">
+      </div>
+      <div class="input-append">
+        <input id="start-date" type="text" name="startdate" autocomplete="off" data-provide="typeahead" placeholder="Start date">
+      </div>
+      <div class="input-append">
+        <input id="end-date" type="text" name="enddate" autocomplete="off" data-provide="typeahead" placeholder="End date">
+      </div>
+      <input type="submit" id="search-button" value="Search" class="btn add-on">
+        <i class="icon-search"></i>
+    </form>
   </div>
