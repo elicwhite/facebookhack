@@ -80,10 +80,12 @@ h3 {
 }
 
 .caption {
-	display: none;
+	/*display: none;*/
 	float: left;
-	margin-top: -295px;
+	margin-top: -45px;
 	margin-left: 10px;
+	height: 45px;
+	overflow: hidden;
 	width: 70%;
 }
 
