@@ -4,6 +4,7 @@ body
 	font-family: "Lucida Grande", "Calibri", Verdana, Arial, sans-serif;
 	background: #DFE8F3  url('../images/bodybg.gif') repeat-x;
 	padding-top: 60px;
+	overflow: scroll;
 }
 
 #login {
@@ -18,23 +19,23 @@ body
 	width: 1020px;
 }
 
-.row div {
-	border: 2px solid red;
-}
-
-.item img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-	height: 480px;
-}
-
 #login, #search, #results, .card {
 	padding: 10px;
 	border: 2px solid grey;
 	border-radius: 10px;
 	margin-bottom: 10px;
 	background-color: #eeeeee;
+}
+
+/*.row div {
+	border: 2px solid red;
+}*/
+
+.item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	height: 300px;
 }
 
 .card {
