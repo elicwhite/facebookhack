@@ -11,10 +11,15 @@ body
 }
 
 #search {
-	width: 330px;
+	width: 340px;
 }
 
-#login, #search, #results {
+/*#results {
+	width: 50px;
+}
+*/
+
+#login, #search, #results, .card {
 	padding: 10px;
 	border: 2px solid grey;
 	border-radius: 10px;
@@ -22,12 +27,23 @@ body
 	background-color: #eeeeee;
 }
 
+.card {
+	width: auto;
+	background-color: white;
+	margin: 0px;
+}
+
+.card img {
+	border: 2px solid #3B5998;
+	border-radius: 10px;
+}
+
 #login form, #login h2{
 	margin: 0px;
 }
 
 #search-button {
-	height:26px;
+	height:30px;
 }
 
 #search-field {
