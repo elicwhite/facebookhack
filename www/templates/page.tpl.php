@@ -30,7 +30,9 @@
           	</div>
           </div>
         	<?php else: ?>
-        	<img src="<?= $photo['original']->picture?>" class="thumb" / >
+            <div class="thumbwrapper">
+        	   <img src="<?= $photo['original']->picture?>" class="thumb" / >
+            </div>
         	<?php
         	endif;
         	$i++;
