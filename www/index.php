@@ -4,7 +4,7 @@ use OAuth\Common\Storage\Memory;
 use OAuth\Common\Consumer\Credentials;
 use OAuth\Common\Http\Uri\Uri;
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 // In-memory storage
 $storage = new Memory();
