@@ -72,4 +72,6 @@ _generate("footer.tpl");
 
 if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
     require_once("eli.php");
+    $eli = new Eli();
+    $eli->run($facebookService);
 }
