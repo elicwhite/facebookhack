@@ -1,18 +1,22 @@
 {
-    "hash": "a3727e23da9ffbca80f15b1995f765f2",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "71e7d4de79369b9672b1dde208a358c9",
     "packages": [
         {
-            "name": "thesavior/Saros",
+            "name": "thesavior/saros",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheSavior/Saros-Framework.git",
-                "reference": "168b8e919a5ed8204c90e507d697117037cb36c4"
+                "reference": "183ccf68c5746194ffd0d9ad4aa43fd94ecf3a2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheSavior/Saros-Framework/zipball/168b8e919a5ed8204c90e507d697117037cb36c4",
-                "reference": "168b8e919a5ed8204c90e507d697117037cb36c4",
+                "url": "https://api.github.com/repos/TheSavior/Saros-Framework/zipball/183ccf68c5746194ffd0d9ad4aa43fd94ecf3a2a",
+                "reference": "183ccf68c5746194ffd0d9ad4aa43fd94ecf3a2a",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +51,7 @@
                 "source": "https://github.com/TheSavior/Saros-Framework/tree/master",
                 "issues": "https://github.com/TheSavior/Saros-Framework/issues"
             },
-            "time": "2013-03-11 08:34:08"
+            "time": "2013-03-20 02:48:12"
         },
         {
             "name": "vlucas/Spot",

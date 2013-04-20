@@ -21,6 +21,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/TheSavior/Saros-Framework"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/TheSavior/PHPoAuthLib"
         }
     ],
     "autoload": {
