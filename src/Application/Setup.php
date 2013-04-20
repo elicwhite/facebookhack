@@ -35,9 +35,9 @@ class Setup
         ini_set('display_errors', 'on');
 
 		// Set up our config values
-		$registry->config->siteUrl = "";
+		$registry->config->siteUrl = $_SERVER["ROOT"];
 		$registry->config->rewriting = true;
-                        
+
 		// Set the default theme
 		$registry->display->setTheme("Default");
 		// Set up the controller's template

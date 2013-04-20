@@ -15,7 +15,9 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "thesavior/saros": "dev-master"
+        "thesavior/saros": "dev-master",
+        "facebook/php-sdk": "dev-master",
+		"lusitanian/oauth": "dev-master"
     },
     "repositories": [
         {
@@ -24,8 +26,9 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/TheSavior/PHPoAuthLib"
+            "url": "https://github.com/Lusitanian/PHPoAuthLib"
         }
+
     ],
     "autoload": {
         "psr-0": {

@@ -3,8 +3,108 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "71e7d4de79369b9672b1dde208a358c9",
+    "hash": "c10fd743eed6b7674521c31c155eafcb",
     "packages": [
+        {
+            "name": "facebook/php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-php-sdk.git",
+                "reference": "v3.2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/v3.2.2",
+                "reference": "v3.2.2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk/contributors"
+                }
+            ],
+            "description": "Facebook PHP SDK",
+            "homepage": "https://github.com/facebook/facebook-php-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2013-01-15 21:37:15"
+        },
+        {
+            "name": "lusitanian/oauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lusitanian/PHPoAuthLib.git",
+                "reference": "66bfc72b77c37e33648093aa360dcd46ef317443"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lusitanian/PHPoAuthLib/zipball/66bfc72b77c37e33648093aa360dcd46ef317443",
+                "reference": "66bfc72b77c37e33648093aa360dcd46ef317443",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "symfony/http-foundation": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "OAuth": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Desberg",
+                    "email": "david@daviddesberg.com"
+                },
+                {
+                    "name": "Pieter Hordijk",
+                    "email": "info@pieterhordijk.com"
+                }
+            ],
+            "description": "PHP 5.4+ oAuth 1/2 Library",
+            "keywords": [
+                "authentication",
+                "authorization",
+                "oauth",
+                "security"
+            ],
+            "support": {
+                "source": "https://github.com/Lusitanian/PHPoAuthLib/tree/master",
+                "issues": "https://github.com/Lusitanian/PHPoAuthLib/issues"
+            },
+            "time": "2013-04-06 22:01:03"
+        },
         {
             "name": "thesavior/saros",
             "version": "dev-master",
@@ -108,7 +208,9 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "thesavior/saros": 20
+        "thesavior/saros": 20,
+        "facebook/php-sdk": 20,
+        "lusitanian/oauth": 20
     },
     "platform": {
         "php": ">=5.3.2"
