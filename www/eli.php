@@ -82,18 +82,25 @@
     var_dump($types);
     
     function getImportant($stories) {
-        $avg = array_reduce($stories, function($acc, $item) {
+        $popStories = array_filter($stories, function($item){
+            return $item["likes"] > 0;
+        });
+
+        //die(var_dump(count($popStories)));
+
+        $avg = array_reduce($popStories, function($acc, $item) {
             return $acc + $item["likes"];
-        }) / count($stories);
+        }) / count($popStories);
+
 
         $distFromAvg = array_map(function($item) use ($avg) {
-            $dist = round($item["likes"] - $avg);
+            $dist = round(pow($item["likes"] - $avg,2));
             return $dist;
-        }, $stories);
+        }, $popStories);
 
-        $stdDev = sqrt(array_sum($distFromAvg) / count($stories));
+        $stdDev = sqrt(array_sum($distFromAvg) / count($popStories));
 
-        $results = array_filter($stories, function($item) use ($avg, $stdDev){
+        $results = array_filter($popStories, function($item) use ($avg, $stdDev){
             return $item["likes"] > $avg+$stdDev;
         });
 
