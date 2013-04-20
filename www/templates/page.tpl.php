@@ -16,31 +16,35 @@
             $photos = $PAGE_VARS['types']['photos'];
             $photo = array_shift($photos);
           ?>
-          <a href="<?= $photo['original']->link?>">
-            <img src="<?= $photo['original']->picture?>" class="largepic" />
-            <div class="bottomImage">
-              <div class="caption shiddy">
-                <?php if(property_exists($photo['original'], "message")): ?>
-                  <span><?= Truncate($photo['original']->message, 65) ?></span>
-                <?php endif; ?>
+          <div class="bannerImage">
+            <a href="<?= $photo['original']->link?>">
+              <img src="<?= $photo['original']->picture?>" class="largepic" />
+              <div class="bottomImage">
+                <div class="caption shiddy">
+                  <?php if(property_exists($photo['original'], "message")): ?>
+                    <span><?= Truncate($photo['original']->message, 65) ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="statusnums">
+                  <img src="img/facebook-thumbs-up.png" />
+                  <span class="likes shiddy"><?= $photo['likes'] ?></span>
+                </div>
               </div>
-              <div class="statusnums">
-                <img src="img/facebook-thumbs-up.png" />
-                <span class="likes shiddy"><?= $photo['likes'] ?></span>
-              </div>
-            </div>
-          </a>
-          <?php
+            </a>
+          </div>
 
-          foreach ($photos as $photo) { ?>
-          <a href="<?= $photo['original']->link?>">
-            <div class="thumbwrapper">
-              <img src="<?= $photo['original']->picture?>" class="thumb" />
-            </div>
-          </a>
-          <?php
-          }
-          ?>
+          <div class="smallImages">
+            <?php
+            foreach ($photos as $photo) { ?>
+            <a href="<?= $photo['original']->link?>">
+              <div class="thumbwrapper">
+                <img src="<?= $photo['original']->picture?>" class="thumb" />
+              </div>
+            </a>
+            <?php
+            }
+            ?>
+          </div>
 
         </div>
         <!-- Mutual Friend list -->
