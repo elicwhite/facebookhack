@@ -35,6 +35,12 @@
                 <div class="thumboverflowwrapper">
                   <img src="<?= $photo['original']->picture?>" class="thumb" />
                 </div>
+                <div class="bottomImage">
+                  <div class="statusnums">
+                    <img src="img/facebook-thumbs-up.png" />
+                    <span class="likes shiddy"><?= $photo['likes'] ?></span>
+                  </div>
+                </div>
               </div>
             </a>
             <?php
