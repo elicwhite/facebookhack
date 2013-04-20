@@ -60,12 +60,16 @@
         		?>
     		  <div class="status">
             <div class="statusContent">
-              <div class="statusTop">
-                <div class="avatar">
-                  <img src="http://graph.facebook.com/<?=$_GET['friend']?>/picture" />
+              <a href="http://facebook.com/<?=$status["original"]->id?>">
+                <div class="statusTop">
+                  <div class="avatar">
+                    <a href="http://facebook.com/<?=$_GET['friend']?>">
+                      <img src="http://graph.facebook.com/<?=$_GET['friend']?>/picture" />
+                    </a>
+                  </div>
+                  <p><?=$status["original"]->message ?></p>
                 </div>
-                <p><?=$status["original"]->message ?></p>
-              </div>
+              </a>
               <div class="statusbottom">
                 <div class="statusnums">      
                   <img src="img/facebook-thumbs-up.png" >     
