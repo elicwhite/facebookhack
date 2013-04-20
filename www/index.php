@@ -26,6 +26,20 @@ $serviceFactory = new \OAuth\ServiceFactory();
 /** @var $facebookService Facebook */
 $facebookService = $serviceFactory->createService('facebook', $credentials, $storage, ["read_stream", "user_activities", "user_checkins", "user_photos", "user_status", "user_videos"] );
 
+if(isset($_GET['permafix'])){
+    $facebookService->getStorage()->clearToken();
+    echo 'THIS IS SOME DUMB ASS SHIT';
+    $facebookService->getStorage()->clearToken();
+    echo 'THIS IS SOME DUMB ASS SHIT';
+    $facebookService->getStorage()->clearToken();
+    echo 'THIS IS SOME DUMB ASS SHIT';
+    $facebookService->getStorage()->clearToken();
+    echo 'THIS IS SOME DUMB ASS SHIT';
+    $facebookService->getStorage()->clearToken();
+    echo 'THIS IS SOME DUMB ASS SHIT';
+    $facebookService->getStorage()->clearToken();
+}
+
 $PAGE_VARS = array();
 
 #smart as fuck <-- best comment ever <-- seccond best comment ever...

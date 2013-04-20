@@ -4,3 +4,4 @@
 06:42am Eli is tempted by smell.
 07:47am The little images don't have hover. Obviously.
 09:02am Eli remembers Evan's middle "inicials" but not his last name. Glorious victory!
+09:39am Eli pushes the best exception of all time catch(Exception e){break;}
