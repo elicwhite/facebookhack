@@ -88,7 +88,7 @@ h3 {
 				
 .bottomImage .statusnums{			
 	float: right;			
-	margin-right: 10px;			
+	margin-right: 25px;			
 }			
 			
 .images {			
@@ -106,7 +106,8 @@ h3 {
 .statusnums img {
 	vertical-align: middle;
 	width: 20px;
-	margin-bottom:3px;
+	margin-bottom: 5px;
+	margin-top: 2px;
 }
 
 .status .statusnums {	
@@ -116,7 +117,6 @@ h3 {
 .statusnums{
 	color: white;
 	font-weight: bold;
-	margin-right: 15px;
 }
 
 .status .statusnums{
