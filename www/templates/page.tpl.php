@@ -15,24 +15,30 @@
         <?php
         $i = 0; 
         foreach ($PAGE_VARS['types']['photos'] as $photo) {
-        	if($i == 0): ?>
-        	<img src="<?= $photo['original']->picture?>" class="largepic" />
-        	<div class="bottomImage">
-            <div class="caption">
-              <?php if(property_exists($photo['original'], "message")): ?>
-          		  <span><?= Truncate($photo['original']->message, 65) ?></span>
-              <?php endif ?>
-          	</div>
-          	<div class="statusnums">
-          		<img src="img/facebook-thumbs-up.png" />
-          		<span class="likes"><?= $photo['likes'] ?></span>
-          	</div>
-          </div>
-        	<?php else: ?>
-        	<img src="<?= $photo['original']->picture?>" class="thumb" / >
-        	<?php
-        	endif;
-        	$i++;
+        	?>
+          <a href="<?= $photo['original']->link?>">
+            <?php
+            if($i == 0): ?>
+          	<img src="<?= $photo['original']->picture?>" class="largepic" />
+          	<div class="bottomImage">
+              <div class="caption">
+                <?php if(property_exists($photo['original'], "message")): ?>
+            		  <span><?= Truncate($photo['original']->message, 65) ?></span>
+                <?php endif ?>
+            	</div>
+            	<div class="statusnums">
+            		<img src="img/facebook-thumbs-up.png" />
+            		<span class="likes"><?= $photo['likes'] ?></span>
+            	</div>
+            </div>
+          	<?php else: ?>
+          	<img src="<?= $photo['original']->picture?>" class="thumb" / >
+          	<?php
+          	endif;
+          	$i++;
+            ?>
+          </a>
+          <?php
         }
         ?>
         </div>
