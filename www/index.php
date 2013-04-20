@@ -76,7 +76,10 @@ _generate("head.tpl");
 
 if(isset($_GET['friend'])){
     $fbHistory = new History($facebookService, $_GET['friend']);
-    $PAGE_VARS['types'] = $fbHistory->run();
+
+    $data = $fbHistory->getData("3 months ago", "now");
+
+    $PAGE_VARS['types'] = $fbHistory->run($data);
     _generate("page.tpl");
 }
 
