@@ -125,6 +125,3 @@ class Eli {
         return $results;
     }
 }
-
-$eli = new Eli();
-$eli->run($facebookService);
