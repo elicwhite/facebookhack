@@ -3,7 +3,20 @@ body
 	font-size: 12px;
 	font-family: "Lucida Grande", "Calibri", Verdana, Arial, sans-serif;
 	background: #DFE8F3  url('../images/bodybg.gif') repeat-x;
+	padding-top: 60px;
 }
+
+#login {
+	width: 200px;
+	padding: 10px;
+	border: 3px solid black;
+	border-radius: 10px;
+}
+
+#login form, #login h2{
+	margin: 0px;
+}
+
 #container
 {
 	width: 600px;
