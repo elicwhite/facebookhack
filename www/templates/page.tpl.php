@@ -62,7 +62,8 @@
       	foreach ($PAGE_VARS['types']['status'] as $status) {
       		?>
   		  <div class="status">
-          <p><?=$status["original"]->message ?></p>
+          <p><img src="https://graph.facebook.com/<?= $_GET['friend']?>/picture">
+            <?=$status["original"]->message ?></p>
           <div class="statusnums">      
             <img src="img/facebook-thumbs-up.png" >     
             <?= $status['likes'] ?>     

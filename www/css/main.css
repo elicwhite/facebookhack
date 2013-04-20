@@ -78,9 +78,8 @@ h3 {
 
 .bottomImage {
 	position: relative;        
-	position: relative;
 	bottom: 40px;		       
-	 bottom: 40px;
+	bottom: 25px;
 	float: left;	
 	margin-bottom: -40px;			
 	width: 100%;			
