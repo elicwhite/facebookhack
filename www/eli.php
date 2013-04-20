@@ -57,7 +57,12 @@
         return $a["likes"] < $b["likes"];
     });
 
-    $storyArray = getImportant($storyArray);
+
+    $newStories = array(
+        "photos" => getImportant("photo", $storyArray, 4),
+        "status" => getImportant("status", $storyArray),
+        "link" => getImportant("link", $storyArray)
+    );
 
     echo "new mutual friends";
     echo "<ul>";
@@ -68,23 +73,31 @@
     echo "</ul>";
     echo "<br />";
     
-    echo "likes in stories";
-    echo "<ul>";
-    foreach($storyArray as $story) {
-        if (property_exists($story["original"], "picture")) {
-            echo '<img src="'.$story["original"]->picture.'" />';
+    
+    foreach($newStories as $type => $list) {
+        echo "Type: ".$type."<br />";
+        echo "<ul>";
+        foreach($list as $story) {
+            if (property_exists($story["original"], "picture")) {
+                echo '<img src="'.$story["original"]->picture.'" />';
+            }
+            echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
         }
-        echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
+        echo "</ul>";
     }
-    echo "</ul>";
-
+    
     echo "<br />\n";
     var_dump($types);
     
-    function getImportant($stories) {
-        $popStories = array_filter($stories, function($item){
-            return $item["likes"] > 0;
+    function getImportant($type, $stories, $limit = 0) {
+        $popStories = array_filter($stories, function($item) use ($type, $limit){
+            //die(var_dump($item["original"]->type));
+            return $item["likes"] > 0 && $item["original"]->type == $type;
         });
+
+        if ($limit > 0) {
+            return array_slice($popStories, 0, $limit);
+        }
 
         //die(var_dump(count($popStories)));
 
