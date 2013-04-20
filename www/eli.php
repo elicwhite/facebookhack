@@ -1,94 +1,99 @@
 <?php
-    $user = "evanbtcohen";
-    $prof = json_decode($facebookService->request('/'.$user));
-    $userId = $prof->id;
+class Eli {
 
-    $val = $facebookService->request('/'.$user.'/feed?limit=500');
-    $json = json_decode($val);
+    public function run($facebookService) {
 
-    $mutualFriends = json_decode($facebookService->request("me/mutualfriends/".$userId));
-    //die(var_dump($mutualFriends->data));
-    $mut = array();
-    foreach ($mutualFriends->data as $friend) {
-        $mut[] = $friend->name;
-    }
+        $user = "evanbtcohen";
+        $prof = json_decode($facebookService->request('/'.$user));
+        $userId = $prof->id;
 
-    $newFriends = array();
-    $stories = 0;
+        $val = $facebookService->request('/'.$user.'/feed?limit=500');
+        $json = json_decode($val);
 
-    $types = array();
-    $storyArray = array();
-
-    foreach($json->data as $ele) {
-        //die(var_dump($ele->status_type == "approved_friend"));
-        if (property_exists($ele, "status_type") && $ele->status_type == "approved_friend") {
-            foreach($ele->story_tags as $tag) {
-                if ($tag[0]->id != $userId) {
-                   $newFriends[] = $tag[0]->name; 
-                }
-                
-            }
+        $mutualFriends = json_decode($facebookService->request("me/mutualfriends/".$userId));
+        //die(var_dump($mutualFriends->data));
+        $mut = array();
+        foreach ($mutualFriends->data as $friend) {
+            $mut[] = $friend->name;
         }
-        else
-        {
-            $likeCount = 0;
-            if (property_exists($ele, "likes")) {
-                $likeCount = $ele->likes->count;
-            }
 
-            $storyArray[] = array("likes" => $likeCount, "original" => $ele);
+        $newFriends = array();
+        $stories = 0;
 
+        $types = array();
+        $storyArray = array();
 
-            if (!isset($types[$ele->type]))
-            {
-                $types[$ele->type] = 1;
+        foreach($json->data as $ele) {
+            //die(var_dump($ele->status_type == "approved_friend"));
+            if (property_exists($ele, "status_type") && $ele->status_type == "approved_friend") {
+                foreach($ele->story_tags as $tag) {
+                    if ($tag[0]->id != $userId) {
+                       $newFriends[] = $tag[0]->name; 
+                    }
+                    
+                }
             }
             else
             {
-                $types[$ele->type]++;
-            }
+                $likeCount = 0;
+                if (property_exists($ele, "likes")) {
+                    $likeCount = $ele->likes->count;
+                }
 
-            //var_dump($ele);
+                $storyArray[] = array("likes" => $likeCount, "original" => $ele);
+
+
+                if (!isset($types[$ele->type]))
+                {
+                    $types[$ele->type] = 1;
+                }
+                else
+                {
+                    $types[$ele->type]++;
+                }
+
+                //var_dump($ele);
+            }
+            $stories++;
         }
-        $stories++;
-    }
 
-    usort($storyArray, function ($a, $b) {
-        return $a["likes"] < $b["likes"];
-    });
+        usort($storyArray, function ($a, $b) {
+            return $a["likes"] < $b["likes"];
+        });
 
 
-    $newStories = array(
-        "photos" => getImportant("photo", $storyArray, 4),
-        "status" => getImportant("status", $storyArray),
-        "link" => getImportant("link", $storyArray)
-    );
+        $newStories = array(
+            "photos" => $this->getImportant("photo", $storyArray, 4),
+            "status" => $this->getImportant("status", $storyArray),
+            "link" => $this->getImportant("link", $storyArray)
+        );
 
-    echo "new mutual friends";
-    echo "<ul>";
-    $newMutFriends = array_intersect($newFriends, $mut);
-    foreach($newMutFriends as $newFriend) {
-        echo "<li>".$newFriend."</li>";
-    }
-    echo "</ul>";
-    echo "<br />";
-    
-    
-    foreach($newStories as $type => $list) {
-        echo "Type: ".$type."<br />";
+        echo "new mutual friends";
         echo "<ul>";
-        foreach($list as $story) {
-            if (property_exists($story["original"], "picture")) {
-                echo '<img src="'.$story["original"]->picture.'" />';
-            }
-            echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
+        $newMutFriends = array_intersect($newFriends, $mut);
+        foreach($newMutFriends as $newFriend) {
+            echo "<li>".$newFriend."</li>";
         }
         echo "</ul>";
+        echo "<br />";
+        
+        
+        foreach($newStories as $type => $list) {
+            echo "Type: ".$type."<br />";
+            echo "<ul>";
+            foreach($list as $story) {
+                if (property_exists($story["original"], "picture")) {
+                    echo '<img src="'.$story["original"]->picture.'" />';
+                }
+                echo "<li>".$story["likes"]." likes, type: ".$story["original"]->type."</li>";
+            }
+            echo "</ul>";
+        }
+        
+        echo "<br />\n";
+        var_dump($types);
     }
-    
-    echo "<br />\n";
-    var_dump($types);
-    
+
     function getImportant($type, $stories, $limit = 0) {
         $popStories = array_filter($stories, function($item) use ($type, $limit){
             //die(var_dump($item["original"]->type));
@@ -119,4 +124,7 @@
 
         return $results;
     }
-?>
+}
+
+$eli = new Eli();
+$eli->run($facebookService);

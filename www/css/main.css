@@ -2,9 +2,50 @@ body
 {
 	font-size: 12px;
 	font-family: "Lucida Grande", "Calibri", Verdana, Arial, sans-serif;
-	background: #DFE8F3  url('../images/bodybg.gif') repeat-x;
+	background: #E9EAED url('../images/bodybg.gif') repeat-x;
 	padding-top: 60px;
 	overflow: scroll;
+}
+
+.item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	height: 300px;
+}
+
+.card {
+	width: auto;
+	background-color: white;
+	margin: 0px;
+}
+
+.card img {
+	border: 2px solid #3B5998;
+	border-radius: 10px;
+}
+
+.status {
+	width: 100%;
+	background-color: white;
+	border: 1px solid #D3D6DB;
+	border-radius: 4px;
+}
+
+.input-append {
+	margin: 0px;
+}
+
+#login form, #login h2{
+	margin: 0px;
+}
+
+#search-button {
+	height:30px;
+}
+
+#search-field {
+	width: 300px;
 }
 
 #login {
@@ -27,43 +68,7 @@ body
 	background-color: #eeeeee;
 }
 
-/*.row div {
-	border: 2px solid red;
-}*/
-
-.item img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-	height: 300px;
-}
-
-.card {
-	width: auto;
-	background-color: white;
-	margin: 0px;
-}
-
-.card img {
-	border: 2px solid #3B5998;
-	border-radius: 10px;
-}
-
-#login form, #login h2{
-	margin: 0px;
-}
-
-#search-button {
-	height:30px;
-}
-
-#search-field {
-	width: 300px;
-}
-
-.input-append {
-	margin: 0px;
-}
+/* styles already in file */
 
 #container
 {
