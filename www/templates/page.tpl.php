@@ -59,12 +59,16 @@
       </div>
       <!-- Status feeds -->
       <div class="span4">
+        <h3>Popular Statuses</h3>
       	<?php
       	foreach ($PAGE_VARS['types']['status'] as $status) {
       		?>
   		  <div class="status">
           <p><?=$status["original"]->message ?></p>
-          <div class="statusnums"><?= $status['likes'] ?> likes</div>
+          <div class="statusnums">      
+            <img src="img/facebook-thumbs-up.png" >     
+            <?= $status['likes'] ?>     
+          </div>
         </div>
       		<?php
       	}
