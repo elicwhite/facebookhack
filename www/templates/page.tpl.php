@@ -15,7 +15,7 @@
         <?php
         $i = 0; 
         foreach ($PAGE_VARS['types']['photos'] as $photo) {
-        	if($i == 0):?>
+        	if($i == 0): ?>
         	<img src="<?= $photo['original']->picture?>" class="largepic" />
         	<div class="bottomImage">
             <div class="caption">
@@ -23,7 +23,7 @@
           	</div>
           	<div class="statusnums">
           		<img src="img/facebook-thumbs-up.png" />
-          		<span class="likes">15</span>
+          		<span class="likes"><?= $photo['likes'] ?></span>
           	</div>
           </div>
         	<?php else: ?>
