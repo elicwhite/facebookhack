@@ -60,16 +60,16 @@
         		?>
     		  <div class="status">
             <div class="statusContent">
-              <a href="http://facebook.com/<?=$status["original"]->id?>">
                 <div class="statusTop">
                   <div class="avatar">
                     <a href="http://facebook.com/<?=$_GET['friend']?>">
                       <img src="http://graph.facebook.com/<?=$_GET['friend']?>/picture" />
                     </a>
                   </div>
-                  <p><?=$status["original"]->message ?></p>
+                  <a href="http://facebook.com/<?=$status["original"]->id?>">
+                    <p><?=$status["original"]->message ?></p>
+                  </a>
                 </div>
-              </a>
               <div class="statusbottom">
                 <div class="datestamp pull-left">
                   <span><?= $status['original']->created_time ?></span>
