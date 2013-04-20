@@ -143,6 +143,10 @@ class History {
             return $item["likes"] > 0 && $item["original"]->type == $type;
         });
 
+        if (count($popStories) == 0) {
+            return array();
+        }
+
         if ($limit > 0) {
             return array_slice($popStories, 0, $limit);
         }
