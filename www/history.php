@@ -16,11 +16,11 @@ class History {
         $val = $this->service->request('/'.$this->user.'/feed?limit=500');
         $json = json_decode($val);
 
-        $mutualFriends = json_decode($this->service->request("me/mutualfriends/".$userId));
+        $mutualFriends = json_decode($this->service->request("me/mutualfriends/".$userId."?fields=picture,name"));
         //die(var_dump($mutualFriends->data));
         $mut = array();
         foreach ($mutualFriends->data as $friend) {
-            $mut[] = $friend->name;
+            $mut[$friend->id] = $friend;
         }
 
         $newFriends = array();
@@ -34,7 +34,7 @@ class History {
             if (property_exists($ele, "status_type") && $ele->status_type == "approved_friend") {
                 foreach($ele->story_tags as $tag) {
                     if ($tag[0]->id != $userId) {
-                       $newFriends[] = $tag[0]->name; 
+                       $newFriends[] = $tag[0]->id; 
                     }
                     
                 }
@@ -75,12 +75,14 @@ class History {
         );
 
         echo "new mutual friends";
-        echo "<ul>";
-        $newMutFriends = array_intersect($newFriends, $mut);
+
+        $newMutFriends = array_filter($mut, function($user) use ($newFriends) {
+            return in_array($user->id, $newFriends);
+        });
         foreach($newMutFriends as $newFriend) {
-            echo "<li>".$newFriend."</li>";
+            echo '<img src="'.$newFriend->picture->data->url.'" />';
         }
-        echo "</ul>";
+        
         echo "<br />";
         
         
