@@ -30,15 +30,15 @@
     <form action="" method="get">
       <div class="input-append">
         <input id="search-field" type="text" name="friend" autocomplete="off" data-provide="typeahead" 
-        placeholder="<?= (isset($_GET['friend']) && $_GET['friend'] != "")? $_GET['friend']: 'Search friend...'; ?>">
+        placeholder="Search friend..." value="<?= (isset($_GET['friend']) && $_GET['friend'] != "")? $_GET['friend']: ''; ?>">
       </div>
       <div class="input-append">
         <input id="start-date" type="text" name="startdate" autocomplete="off" data-provide="typeahead" 
-        placeholder="<?= (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate']: 'Start Date'; ?>">
+        placeholder="Starte date" value="<?= (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate']: ''; ?>">
       </div>
       <div class="input-append">
         <input id="end-date" type="text" name="enddate" autocomplete="off" data-provide="typeahead" 
-        placeholder="<?= (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate']: 'End Date'; ?>">
+        placeholder="End date" value="<?= (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate']: ''; ?>">
       </div>
       <button type="submit" id="search-button" value="Search" class="btn add-on">
         Search <i class="icon-search"></i>
