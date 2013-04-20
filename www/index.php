@@ -44,6 +44,7 @@ $PAGE_VARS = array();
 
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
 require 'smart.php';
+require 'utils.php';
 require_once("history.php");
 
 if (!$facebookService->getStorage()->hasAccessToken()) {

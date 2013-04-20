@@ -68,7 +68,7 @@
               </div>
               <div class="statusbottom">
                 <div class="datestamp pull-left">
-                  <span><?= $status['original']->created_time ?></span>
+                  <span><?= Utils::formatDate($status['original']->created_time) ?></span>
                 </div>
                 <div class="statusnums">      
                   <img src="img/facebook-thumbs-up.png" >     
