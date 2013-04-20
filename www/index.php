@@ -45,8 +45,8 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
 }
 else{
     // Send a request with it
+    $result = json_decode( $facebookService->request( '/me' ), true );
     if(isset($_GET['debug'])){
-        $result = json_decode( $facebookService->request( '/me' ), true );
         print '<pre>';
         print_r($result);
         $val = $facebookService->request('/'.$result['username'].'/feed');
