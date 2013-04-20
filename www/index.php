@@ -28,7 +28,7 @@ $facebookService = $serviceFactory->createService('facebook', $credentials, $sto
 
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
 require 'smart.php';
-
+_generate("head.tpl");
 
 if (!$facebookService->getStorage()->hasAccessToken()) {
     if( !empty( $_GET['code'] ) ) {
@@ -42,7 +42,7 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
         die();
     } else {
         $url = $currentUri->getRelativeUri() . '?go=go';
-        _add2page("<a class='btn' href='$url'>Login with Facebook!</a>");
+        echo("<a class='btn' href='$url'>Login with Facebook!</a>");
     }
 }
 else{
@@ -59,17 +59,16 @@ else{
 
     if(isset($_GET['logout'])){
         $facebookService->getStorage()->clearToken();
-        _add2page('<p class="well">Logout successfull!!!!!!!!!</p>');
         redirect2self();
         die();
     }else{
     // Show some of the resultant data
-    _add2page('<a href="?logout" class="btn pull-right">Logout</a>');
-    _add2page('<p class="well">Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'] . '</p>');
+    echo('<a href="?logout" class="btn pull-right">Logout</a>');
+    echo('<p class="well">Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'] . '</p>');
     }
 }
 
-_generate("page.tpl");
+_generate("footer.tpl");
 
 if (isset($_GET["user"]) && $_GET["user"] == "Eli") {
     require_once("eli.php");
