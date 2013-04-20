@@ -46,10 +46,24 @@ h3 {
 	margin-bottom: 10px;
 }
 
+.status .avatar {
+	float: left;
+	margin-right: 10px;
+}
+
 .status p {
-	border-bottom: 1px solid #e9eaed;
 	margin: 0px;
 	padding-bottom: 5px;
+}
+
+.statusTop {
+	overflow: hidden;
+}
+
+.statusbottom {
+	clear: both;
+	margin-top: 5px;
+	border-top: 1px solid #e9eaed;
 }
 
 .statusnums {
@@ -70,6 +84,7 @@ h3 {
 	margin-right: 5px;
 	margin-bottom: 5px;
 	font-size: 0;
+	border: 1px solid #ccc;
 }
 
 .mutualfriend img{
