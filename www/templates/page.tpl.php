@@ -12,45 +12,46 @@
       <!-- Images -->
       <div class="span8">
         <div class="images">
-        <?php
-        $i = 0; 
-        foreach ($PAGE_VARS['types']['photos'] as $photo) { ?>
-        <a href="<?= $photo['original']->link?>">
-        	<?php if($i == 0): ?>
-        	<img src="<?= $photo['original']->picture?>" class="largepic" />
-        	<div class="bottomImage">
-            <div class="caption shiddy">
-              <?php if(property_exists($photo['original'], "message")): ?>
-          		  <span><?= Truncate($photo['original']->message, 65) ?></span>
-              <?php endif ?>
-          	</div>
-          	<div class="statusnums">
-          		<img src="img/facebook-thumbs-up.png" />
-          		<span class="likes shiddy"><?= $photo['likes'] ?></span>
-          	</div>
-          </div>
-        	<?php else: ?>
-            <div class="thumbwrapper">
-        	   <img src="<?= $photo['original']->picture?>" class="thumb" / >
+          <?php
+            $photos = $PAGE_VARS['types']['photos'];
+            $photo = array_shift($photos);
+          ?>
+          <a href="<?= $photo['original']->link?>">
+            <img src="<?= $photo['original']->picture?>" class="largepic" />
+            <div class="bottomImage">
+              <div class="caption shiddy">
+                <?php if(property_exists($photo['original'], "message")): ?>
+                  <span><?= Truncate($photo['original']->message, 65) ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="statusnums">
+                <img src="img/facebook-thumbs-up.png" />
+                <span class="likes shiddy"><?= $photo['likes'] ?></span>
+              </div>
             </div>
-        	<?php
-        	endif;
-        	$i++;
-        	?>
-        </a>
-        <?php
-        }
-        ?>
+          </a>
+          <?php
+
+          foreach ($photos as $photo) { ?>
+          <a href="<?= $photo['original']->link?>">
+            <div class="thumbwrapper">
+              <img src="<?= $photo['original']->picture?>" class="thumb" />
+            </div>
+          </a>
+          <?php
+          }
+          ?>
+
         </div>
         <!-- Mutual Friend list -->
         <!-- <div class="row"> -->
-          <h3>Mutual Friends</h3>
+        <h3>Mutual Friends</h3>
         <?php
         foreach ($PAGE_VARS['types']['mutualFriends'] as $friend) {
-        	?>
+        ?>
         	<div class="mutualfriend">
-	            <img src="<?=$friend->picture->data->url?>"/>
-          	</div>
+            <img src="<?=$friend->picture->data->url?>"/>
+        	</div>
         	<?php	
         }
         ?>
@@ -61,7 +62,7 @@
       	<?php
       	foreach ($PAGE_VARS['types']['status'] as $status) {
       		?>
-  		<div class="status">
+  		  <div class="status">
           <p><?=$status["original"]->message ?></p>
           <div class="statusnums"><?= $status['likes'] ?> likes</div>
         </div>
