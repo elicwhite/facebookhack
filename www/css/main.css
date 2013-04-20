@@ -42,7 +42,7 @@ h3 {
 	border-radius: 4px;
 	overflow: hidden;
 	padding-bottom: 0;
-	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .status p {
@@ -112,11 +112,8 @@ h3 {
 	margin-top: 2px;
 }
 
-.status .statusnums {	
-    margin-top: 2px;			
-}
-
 .statusnums{
+	margin-top: 2px;	
 	color: white;
 	font-weight: bold;
 }
