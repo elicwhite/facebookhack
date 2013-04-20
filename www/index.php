@@ -89,8 +89,10 @@ _generate("head.tpl");
 
 if(isset($_GET['friend']) && $_GET['friend']){
     $fbHistory = new History($facebookService, $_GET['friend']);
-
-    $data = $fbHistory->getData($_GET['startdate'], $_GET['enddate']);
+    #ensure that actual dates are used
+    $start = (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate'] : "3 months ago";
+    $end = (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate'] : "now";
+    $data = $fbHistory->getData($start, $end);
     //var_dump($data);
     $PAGE_VARS['types'] = $fbHistory->run($data);
     _generate("page.tpl");

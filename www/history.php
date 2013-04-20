@@ -18,9 +18,6 @@ class History {
         global $facebookService;
         $data = array();
 
-        #ensure that actual dates are used
-        if($start ==""){$start = "3 months ago";}
-        if($end == ""){$end = "now";}
         $start = strtotime($start);
         $end = strtotime($end);
         do{
