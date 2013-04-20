@@ -52,6 +52,18 @@
       </div>
       <!-- Status feeds -->
       <div class="span4">
+<<<<<<< HEAD
+        <h3>Popular Statuses</h3>
+      	<?php
+      	foreach ($PAGE_VARS['types']['status'] as $status) {
+      		?>
+  		  <div class="status">
+          <p><img src="https://graph.facebook.com/<?= $_GET['friend']?>/picture">
+            <?=$status["original"]->message ?></p>
+          <div class="statusnums">      
+            <img src="img/facebook-thumbs-up.png" >     
+            <?= $status['likes'] ?>     
+=======
       	<div class="statuses">
           <?php
         	foreach ($PAGE_VARS['types']['status'] as $status) {
@@ -62,6 +74,7 @@
               <img src="img/facebook-thumbs-up.png" >     
               <?= $status['likes'] ?>     
             </div>
+>>>>>>> a48f2193c325a2515a0ec62520e5ff9695ec3865
           </div>
         		<?php
          
