@@ -3,8 +3,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Facebook Re-connect</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-  	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" /><!-- Fbootstrapp -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /><!-- Fbootstrapp -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="application/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>
 	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-custom.css" /> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
