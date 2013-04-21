@@ -181,6 +181,7 @@ h3 {
 .smallImages a {
 	width: 33%;
 	margin-top: 5px;
+	-webkit-flex-grow: .33;
 }
 
 .thumbwrapper {
