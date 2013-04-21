@@ -185,7 +185,7 @@ class History {
                 $photo["original"]->picture = json_decode($this->service->request("/".$photo["original"]->object_id))->images[2]->source;
             }
             catch(\Exception $e) {
-                break;
+                continue;
             }            
         }
 
