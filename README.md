@@ -1,3 +1,3 @@
-Summarize a range of dates from a friend's feed!
+Get a summary of your news feed.
 
-Live Version: http://radiant-temple-1239.herokuapp.com/
+Live Version: http://mighty-inlet-7517.herokuapp.com
