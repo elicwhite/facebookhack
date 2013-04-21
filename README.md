@@ -1,3 +1,3 @@
-Deploy to Heroku with the buildpack found here: https://github.com/TheSavior/heroku-buildpack-php
+Summarize a range of dates from a friend's feed!
 
-heroku create --buildpack https://github.com/TheSavior/heroku-buildpack-php
+Live Version: http://radiant-temple-1239.herokuapp.com/
