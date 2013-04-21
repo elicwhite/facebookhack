@@ -12,13 +12,13 @@ class History {
     */
     function getData($start, $end) {
 
-        $query = '/me/home?limit=200';
+        $query = '/me/home?limit=500';
         //fql?q=SELECT post_id, actor_id, target_id, message FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid = me() AND type = 'newsfeed')
 
         $results = json_decode($this->service->request($query))->data;
         $data = array();
 
-        foreach($results as $result) {
+        foreach($results as $result) { 
             if (property_exists($result->from, "category")) 
                 continue;
 
@@ -64,8 +64,8 @@ class History {
         });
 
         $newStories = array(
-            "photos" => $this->getImportant("photo", $storyArray, 4),
-            "status" => $this->getImportant("status", $storyArray, 4),
+            "photos" => $this->getImportant("photo", $storyArray),
+            "status" => $this->getImportant("status", $storyArray),
             "link" => $this->getImportant("link", $storyArray, 4)
         );
 
@@ -135,11 +135,17 @@ class History {
 
     function fixPictures($array) {
         foreach($array as $photo) {
+
             try 
             {
-                $photo["original"]->picture = json_decode($this->service->request("/".$photo["original"]->object_id))->images[2]->source;
+                $photoId = $photo["original"]->object_id;
+                $photos = json_decode($this->service->request("/".$photoId))->images;
+
+                $chosenPhoto = $photos[0];
+                $photo["original"]->picture = $chosenPhoto->source;
             }
             catch(\Exception $e) {
+                echo "failed<br />\n";
                 continue;
             }            
         }

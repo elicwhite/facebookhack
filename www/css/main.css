@@ -134,8 +134,7 @@ h3 {
 }			
 			
 .images {			
-    overflow: hidden;			
-    height: 500px;			
+    overflow: hidden;		
 }
 
 .caption {
@@ -173,19 +172,25 @@ h3 {
 
 .smallImages {
 	overflow: hidden;
-	margin-top: 10px;
+	
 	display : -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	-webkit-justify-content: space-around;
 }
 
-.thumboverflowwrapper {
-	overflow: hidden;
-	max-height: 150px;
+.smallImages a {
+	width: 33%;
+	margin-top: 5px;
 }
 
 .thumbwrapper {
 	padding: 3px;
 	border: 1px solid #ccc;
-	margin-left: 4px;
+}
+
+.thumboverflowwrapper {
+	overflow: hidden;
+	max-height: 150px;
 }
 
 .thumb img {

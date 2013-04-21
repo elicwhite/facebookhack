@@ -57,13 +57,15 @@
       	<div class="statuses">
           <?php
         	foreach ($PAGE_VARS['types']['status'] as $status) {
-        		?>
+        		$userId = $status["original"]->from->id;
+            ?>
+
     		  <div class="status">
             <div class="statusContent">
                 <div class="statusTop">
                   <div class="avatar">
-                    <a href="http://facebook.com/<?=$_GET['friend']?>">
-                      <img src="http://graph.facebook.com/<?=$_GET['friend']?>/picture" />
+                    <a href="http://facebook.com/<?=$userId?>">
+                      <img src="http://graph.facebook.com/<?=$userId?>/picture" />
                     </a>
                   </div>
                   <a href="http://facebook.com/<?=$status["original"]->id?>">

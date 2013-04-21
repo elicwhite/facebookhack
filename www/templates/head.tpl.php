@@ -19,29 +19,31 @@
     <div class="topbar">
       <div class="topbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="#">Facebook Re-connect</a>
+          <a class="brand" href="#">Facebook Summary</a>
            <ul class="nav pull-right">
             <li class="active"><?= $PAGE_VARS['user_button'] ?></a></li>
           </ul> 
         </div>
       </div>
     </div>
+    <!--
     <div id="search" class="container">
-    <form action="" method="get">
-      <div class="input-append">
-        <input id="search-field" type="text" name="friend" autocomplete="off" data-provide="typeahead" 
-        placeholder="Search friend..." value="<?= (isset($_GET['friend']) && $_GET['friend'] != "")? $_GET['friend']: ''; ?>">
-      </div>
-      <div class="input-append">
-        <input id="start-date" type="text" name="startdate" autocomplete="off" data-provide="typeahead" 
-        placeholder="Starte date" value="<?= (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate']: ''; ?>">
-      </div>
-      <div class="input-append">
-        <input id="end-date" type="text" name="enddate" autocomplete="off" data-provide="typeahead" 
-        placeholder="End date" value="<?= (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate']: ''; ?>">
-      </div>
-      <button type="submit" id="search-button" value="Search" class="btn add-on">
-        Search <i class="icon-search"></i>
-      </button>
-    </form>
-  </div>
+      <form action="" method="get">
+        <div class="input-append">
+          <input id="search-field" type="text" name="friend" autocomplete="off" data-provide="typeahead" 
+          placeholder="Search friend..." value="<?= (isset($_GET['friend']) && $_GET['friend'] != "")? $_GET['friend']: ''; ?>">
+        </div>
+        <div class="input-append">
+          <input id="start-date" type="text" name="startdate" autocomplete="off" data-provide="typeahead" 
+          placeholder="Starte date" value="<?= (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate']: ''; ?>">
+        </div>
+        <div class="input-append">
+          <input id="end-date" type="text" name="enddate" autocomplete="off" data-provide="typeahead" 
+          placeholder="End date" value="<?= (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate']: ''; ?>">
+        </div>
+        <button type="submit" id="search-button" value="Search" class="btn add-on">
+          Search <i class="icon-search"></i>
+        </button>
+      </form>
+    </div>
+    -->
