@@ -85,19 +85,6 @@
         	}
           ?>
         </div>
-        <div class="mutualFriends">
-          <?php
-          foreach ($PAGE_VARS['types']['mutualFriends'] as $friend) {
-          ?>
-            <a href="http://facebook.com/<?=$friend->id?>" data-toggle="tooltip" title="<?=$friend->name?>">
-              <div class="mutualfriend">
-                <img src="<?=$friend->picture->data->url?>"/>
-              </div>
-            </a>
-            <?php 
-            }
-          ?>
-        </div>
       </div>  
     </div>
     <div class="row">

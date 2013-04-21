@@ -26,20 +26,6 @@ $serviceFactory = new \OAuth\ServiceFactory();
 /** @var $facebookService Facebook */
 $facebookService = $serviceFactory->createService('facebook', $credentials, $storage, ["read_stream", "user_activities", "user_checkins", "user_photos", "user_status", "user_videos"] );
 
-if(isset($_GET['permafix'])){
-    $facebookService->getStorage()->clearToken();
-    echo 'THIS IS SOME DUMB ASS SHIT';
-    $facebookService->getStorage()->clearToken();
-    echo 'THIS IS SOME DUMB ASS SHIT';
-    $facebookService->getStorage()->clearToken();
-    echo 'THIS IS SOME DUMB ASS SHIT';
-    $facebookService->getStorage()->clearToken();
-    echo 'THIS IS SOME DUMB ASS SHIT';
-    $facebookService->getStorage()->clearToken();
-    echo 'THIS IS SOME DUMB ASS SHIT';
-    $facebookService->getStorage()->clearToken();
-}
-
 $PAGE_VARS = array();
 
 #smart as fuck <-- best comment ever <-- seccond best comment ever...
@@ -63,40 +49,27 @@ if (!$facebookService->getStorage()->hasAccessToken()) {
     }
 }
 else{
-    // Send a request with it
-    $fbUser = json_decode( $facebookService->request( '/me' ), true );
-    if(isset($_GET['debug'])){
-        print '<pre>';
-        print_r($fbUser);
-        $val = $facebookService->request('/'.$fbUser['username'].'/feed');
-        $json = json_decode($val);
-        print_r($json);
-        print '</pre>';
-    }
-
     if(isset($_GET['logout'])){
         $facebookService->getStorage()->clearToken();
         redirect2self();
         die();
     }else{
-    // Show some of the result data
-    $PAGE_VARS['user_button'] = '<a href="?logout">Logout</a>';
+        // Show some of the result data
+        $PAGE_VARS['user_button'] = '<a href="?logout">Logout</a>';
     }
 }
 
 
-
 _generate("head.tpl");
 
-if(isset($_GET['friend']) && $_GET['friend']){
-    $fbHistory = new History($facebookService, $_GET['friend']);
-    #ensure that actual dates are used
-    $start = (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate'] : "3 months ago";
-    $end = (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate'] : "now";
-    $data = $fbHistory->getData($start, $end);
-    //var_dump($data);
-    $PAGE_VARS['types'] = $fbHistory->run($data);
-    _generate("page.tpl");
-}
+$fbHistory = new History($facebookService);
+#ensure that actual dates are used
+$start = (isset($_GET['startdate']) && $_GET['startdate'] != "")? $_GET['startdate'] : "3 months ago";
+$end = (isset($_GET['enddate']) && $_GET['enddate'] != "")? $_GET['enddate'] : "now";
+$data = $fbHistory->getData($start, $end);
+
+//var_dump($data);
+$PAGE_VARS['types'] = $fbHistory->run($data);
+_generate("page.tpl");
 
 _generate("footer.tpl");

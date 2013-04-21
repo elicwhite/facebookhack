@@ -1,10 +1,8 @@
 <?php
 class History {
-    public $user;
     private $service;
 
-    public function __construct($service, $user){
-        $this->user = $user;
+    public function __construct($service){
         $this->service = $service;
     }
 
@@ -14,41 +12,25 @@ class History {
     */
     function getData($start, $end) {
 
-        $query = '/'.$this->user.'/feed?limit=100';
-        global $facebookService;
+        $query = '/me/home?limit=200';
+        //fql?q=SELECT post_id, actor_id, target_id, message FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid = me() AND type = 'newsfeed')
+
+        $results = json_decode($this->service->request($query))->data;
         $data = array();
 
-        $start = strtotime($start);
-        $end = strtotime($end);
-        do{
-            $result = json_decode($facebookService->request($query));
-            if (!count($result->data)) {
-                break;
-            }
-            $data = array_merge($data, $result->data);
-            if(property_exists($result, "paging") && property_exists($result->paging, "next")){
-                $query = $result->paging->next;
-            }
+        foreach($results as $result) {
+            if (property_exists($result->from, "category")) 
+                continue;
+
+            $data[] = $result; 
         }
-        while(strtotime((string)(end($result->data)->created_time)) > $start);
-        
+
         return $data;
     }
 
 
     public function run($data) {
 
-        $prof = json_decode($this->service->request('/'. $this->user));
-        $userId = $prof->id;
-
-        $mutualFriends = json_decode($this->service->request("me/mutualfriends/".$userId."?fields=picture,name"));
-        //die(var_dump($mutualFriends->data));
-        $mut = array();
-        foreach ($mutualFriends->data as $friend) {
-            $mut[$friend->id] = $friend;
-        }
-
-        $newFriends = array();
         $stories = 0;
 
         $types = array();
@@ -56,36 +38,24 @@ class History {
 
 
         foreach($data as $ele) {
-            //die(var_dump($ele->status_type == "approved_friend"));
-            if (property_exists($ele, "status_type") && $ele->status_type == "approved_friend") {
-                foreach($ele->story_tags as $tag) {
-                    if ($tag[0]->id != $userId) {
-                       $newFriends[] = $tag[0]->id; 
-                    }
-                    
-                }
+            
+            $likeCount = 0;
+            if (property_exists($ele, "likes")) {
+                $likeCount = $ele->likes->count;
+            }
+
+            $storyArray[] = array("likes" => $likeCount, "original" => $ele);
+
+
+            if (!isset($types[$ele->type]))
+            {
+                $types[$ele->type] = 1;
             }
             else
             {
-                $likeCount = 0;
-                if (property_exists($ele, "likes")) {
-                    $likeCount = $ele->likes->count;
-                }
-
-                $storyArray[] = array("likes" => $likeCount, "original" => $ele);
-
-
-                if (!isset($types[$ele->type]))
-                {
-                    $types[$ele->type] = 1;
-                }
-                else
-                {
-                    $types[$ele->type]++;
-                }
-
-                //var_dump($ele);
+                $types[$ele->type]++;
             }
+
             $stories++;
         }
 
@@ -93,14 +63,7 @@ class History {
             return $a["likes"] < $b["likes"];
         });
 
-        $newMutFriends = array_filter($mut, function($user) use ($newFriends) {
-            return in_array($user->id, $newFriends);
-        });
-
-
-
         $newStories = array(
-            "mutualFriends" => $newMutFriends,
             "photos" => $this->getImportant("photo", $storyArray, 4),
             "status" => $this->getImportant("status", $storyArray, 4),
             "link" => $this->getImportant("link", $storyArray, 4)
@@ -111,14 +74,6 @@ class History {
 
     function formatData($data) {
 
-        echo "new mutual friends";
-
-        foreach($data["mutualFriends"] as $newFriend) {
-            echo '<img src="'.$newFriend->picture->data->url.'" />';
-        }
-        
-        echo "<br />";
-        
         foreach(array($newStories["photos"], $newStories["status"], $newStories["link"])  as $type => $list) {
             echo "Type: ".$type."<br />";
             echo "<ul>";
