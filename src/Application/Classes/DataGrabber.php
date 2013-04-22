@@ -1,5 +1,8 @@
 <?php
-class History {
+namespace Application\Classes;
+
+class DataGrabber
+{
     private $service;
 
     public function __construct($service){
@@ -18,11 +21,11 @@ class History {
         $results = json_decode($this->service->request($query))->data;
         $data = array();
 
-        foreach($results as $result) { 
-            if (property_exists($result->from, "category")) 
+        foreach($results as $result) {
+            if (property_exists($result->from, "category"))
                 continue;
 
-            $data[] = $result; 
+            $data[] = $result;
         }
 
         return $data;
@@ -38,7 +41,7 @@ class History {
 
 
         foreach($data as $ele) {
-            
+
             $likeCount = 0;
             if (property_exists($ele, "likes")) {
                 $likeCount = $ele->likes->count;
@@ -85,9 +88,9 @@ class History {
             }
             echo "</ul>";
         }
-        
+
         echo "<br />\n";
-        
+
     }
 
     function getImportant($type, $stories, $limit = 0) {
@@ -136,7 +139,7 @@ class History {
     function fixPictures($array) {
         foreach($array as $photo) {
 
-            try 
+            try
             {
                 $photoId = $photo["original"]->object_id;
                 $photos = json_decode($this->service->request("/".$photoId))->images;
@@ -147,7 +150,7 @@ class History {
             catch(\Exception $e) {
                 echo "failed<br />\n";
                 continue;
-            }            
+            }
         }
 
         return $array;
